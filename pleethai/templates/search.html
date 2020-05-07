@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+{% block title %}PleeThai{% endblock %}
+{% block extra_js %}
+<script type="text/javascript" src="{% static 'js/jquery.inview.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap4-toggle.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/search.js' %}"></script>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/bootstrap4-toggle.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/search.css' %}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+{% endblock %}
+
+{% block content %}
+<nav class="navbar navbar-expand navbar-dark search">
+    <form class="form-inline w-50 flex-fill flex-md-grow-0 ml-auto" action="/">
+        <input id="keyword" class="keyword-box" type="search" placeholder="{% trans '検索ワード' %}" aria-label="{% trans '検索ワード' %}">
+    </form>
+    <button id="tagbutton" class="nav-btn" type="button">{% trans 'タグ' %}</button>
+    <button id="clearbutton" class="nav-btn" type="button">{% trans 'クリア' %}</button> 
+</nav>
+<!-- Tab Navigation -->
+<ul class="nav nav-fill" role="tablist">
+    <li class="nav-item-search">
+      <a id="nav1" href="#tab1" class="nav-item nav-link active" data-toggle="tab" role="tab" aria-controls="tab1" aria-selected="true"><span class="h5 header tab-text tab-text-word">{% trans '単語' %}</span></a>
+    </li>
+    <li class="nav-item-search">
+      <a id="nav2" href="#tab2" class="nav-item nav-link" data-toggle="tab" aria-controls="tab2" aria-selected="false"><span class="h5 header tab-text tab-text-example">{% trans '例文' %}</span></a>
+    </li>
+</ul>
+<div class="tab-content" id="searchcontainer">
+    <!-- Word Content -->
+    <div id="tab1" class="tab-pane fade show active mb-5" role="tabpanel" aria-labelledby="nav1">
+        <div id="wordcontainer" class="container">
+            <div id="wordheader" class="row header-row-word">
+                <div class="col-md-4">
+                    <span class="h5 header">{% trans '日本語' %}</span>
+                </div>
+                <div class="col-md-4 verticalLine-word">
+                    <span class="h5 header">{% trans 'タグ' %}</span>
+                </div>
+                <div class="col-md-4 verticalLine-word">
+                    <span class="h5 header">{% trans 'タイ語' %} / {% trans '英語' %}</span>
+                </div>
+            </div>
+            <hr class="header-row-word">
+        </div>
+        <div id="wordbottom"></div>
+        <div class="d-flex justify-content-center">
+            <div id="wordloading" class="spinner-border text-primary"></div>
+        </div>
+    </div>
+    <!-- Example Content -->
+    <div id="tab2" class="tab-pane fade mb-5" role="tabpanel" aria-labelledby="nav2">
+        <div id="examplecontainer" class="container">
+            <div id="exampleheader" class="row header-row-example" href="/example/{{ object.id }}/">
+                <div class="col-lg-5">
+                    <span class="h5 header">{% trans '日本語' %}</span>
+                </div>
+                <div class="col-lg-3 verticalLine-example">
+                    <span class="h5 header">{% trans 'タグ' %}</span>
+                </div>
+                <div class="col-lg-4 verticalLine-example">
+                        <span class="h5 header">{% trans 'タイ語' %}</span>
+                </div>
+            </div>
+            <hr class="header-row-example">
+        </div>
+        <div id="examplebottom"></div>
+        <div class="d-flex justify-content-center">
+            <div id="exampleloading" class="spinner-border text-primary"></div>
+        </div>
+    </div>
+</div>
+<div id="page_top"><a href="#"></a></div>
+<!-- Detail Modal -->
+<div class="modal fade" id="detail-modal">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content"></div>
+    </div>
+</div>
+
+<!-- Tag Modal -->
+<div class="modal fade show" id="tag-modal">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div id="tag-modal-content" class="modal-content">
+            <div class="d-flex justify-content-center">
+                <div id="tagloading" class="spinner-border text-primary"></div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

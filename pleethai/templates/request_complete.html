@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n static %}
+{% block title %}{% trans 'リクエストメール送信完了' %}{% endblock title %}
+
+{% block content %}
+<div class="col">
+    {% trans 'リクエストメール送信完了' %}
+</div>
+<div class="col">
+    {% trans 'リクエストありがとうございました。管理者からの連絡をお待ちください。' %}
+</div>
+<div class="container">
+    <div class="row justify-content-start">
+        <div class="m-1">
+            <form action="{% url 'search' %}" method="GET">
+                <button type="submit" class="btn btn-primary btn-lg">TOP</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

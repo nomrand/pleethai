@@ -1,0 +1,203 @@
+div.toggle {
+    margin: 5px;
+}
+div.tag-badge {
+    cursor: pointer;
+}
+nav.search {
+    background-color: #097f9d;
+}
+input.keyword-box {
+    border: none;
+    width: 100%;
+    padding-left: 10px;
+}
+button.nav-btn {
+    background-image: url("../img/nav-btn.png");
+    width: 71px;
+    height: 30px;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    margin-left: 10px;
+    padding: 0;
+    color: white;
+    white-space: nowrap;
+}
+li.nav-item-search {
+    width: 50%;
+    margin: 10px 0 16px 0;
+}
+#nav1 {
+    height: auto;
+    background-image: url("../img/word.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100% auto;
+    padding: 3% 0 3% 0;
+    white-space: nowrap;
+}
+#nav1.active {
+    background-image: url("../img/word-select.png");
+}
+#nav1:hover {
+    background-image: url("../img/word-select.png");
+    background-color: #cee5eb;
+}
+#nav2 {
+    height: auto;
+    background-image: url("../img/example.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100% auto;
+    padding: 3% 0 3% 0;
+    white-space: nowrap;
+}
+#nav2.active {
+    background-image: url("../img/example-select.png");
+}
+#nav2:hover {
+    background-image: url("../img/example-select.png");
+    background-color: #f8eded;
+}
+div.row-word {
+    overflow-wrap:break-word;
+}
+span.tab-text {
+    bottom: 20%;
+    width: 100%;
+    right:    0;
+}
+span.tab-text-word {
+    color: #097f9d;
+}
+span.tab-text-example {
+    color: #a3181e;
+}
+span.header {
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+.hover-word {
+    background-color: #cee5eb;
+}
+.hover-example {
+    background-color: #f8eded;
+}
+.badge {
+    font-size: 100%;
+    font-weight: 500;
+    padding: .4em;
+    margin: 0 .1em .2em 0;
+}
+.verb {
+    color: white;
+    background-color: #097f9d;
+}
+.adjective {
+    color: white;
+    background-color: #a3181e;
+}
+.noun {
+    color: white;
+    background-color: #00a562;
+}
+.adverb {
+    color: white;
+    background-color: #006e59;
+}
+.auxiliary_verb {
+    color: white;
+    background-color: #ddb717;
+}
+.conjunction {
+    color: white;
+    background-color: #714d77;
+}
+.preposition {
+    color: white;
+    background-color: #542400;
+}
+.pronoun {
+    color: white;
+    background-color: #918f8f;
+}
+.table-trans {
+    margin: 10px 0 0 0;
+}
+.table-trans td {
+    padding: 0;
+}
+td.no {
+    width: 20px;
+}
+td.thai {
+    width: auto;
+}
+td.eng {
+    width: 50%;
+    padding-left:10px; 
+}
+#page_top {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    right: 20px;
+    bottom:-50px;
+    background: #097f9d;
+    border-radius: 50%;
+}
+#page_top a {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 50px;
+    text-decoration: none;
+}
+#page_top a::before{
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: '\f0d8';
+    font-size: 35px;
+    color: #fff;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: -30px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+}
+.verticalLine-word {
+    border-left: none;
+}
+.verticalLine-example {
+    border-left: none;
+    margin-top: 5px;
+}
+.header-row-word {
+    display: none;
+}
+.header-row-example {
+    display: none;
+}
+@media only screen and (min-width : 768px) {
+    .verticalLine-word {
+        border-left: 1px solid #dee2e6;
+    }
+    .header-row-word {
+        display: flex;
+    }
+}
+@media only screen and (min-width : 992px) {
+    .verticalLine-example {
+        border-left: 1px solid #dee2e6;
+        margin-top: 0;
+    }
+    .header-row-example {
+        display: flex;
+    }
+}

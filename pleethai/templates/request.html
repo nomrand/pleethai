@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n static %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% trans 'リクエスト' %}{% endblock title %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/request.css' %}">
+{% endblock %}
+
+{% block content %}
+<form name='req_form' action="{% url 'mail_confirm' %}" method="post" novalidate="novalidate">
+    {% csrf_token %}
+    <fieldset>
+        <legend>{% trans 'リクエスト' %}</legend>
+        {{ form|crispy }}
+    </fieldset>
+    <button type="submit" class="btn btn-primary">{% trans '確認' %}</button>
+</form>
+{% endblock content %}

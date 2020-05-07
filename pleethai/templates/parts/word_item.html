@@ -1,0 +1,45 @@
+{% load i18n tags %}
+{% get_current_language as LANGUAGE_CODE %}
+<div class="row row-word" href="/word/{{ object.id }}/">
+    <div class="col-md-4">
+        <div><h5>{{ object.japanese }}</h5></div>
+        <div>{{ object.hiragana }} {{ object.roman }}</div>
+        <div>
+            {% if LANGUAGE_CODE == "ja" %}
+                <div class="badge {{ object.wordclass_id.slug }}">{{ object.wordclass_id.japanese }}</div>
+            {% elif LANGUAGE_CODE == "th" %}
+                <div class="badge {{ object.wordclass_id.slug }}">{{ object.wordclass_id.thai }}</div>
+            {% else %}
+                <div class="badge {{ object.wordclass_id.slug }}">{{ object.wordclass_id.slug }}</div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-md-4 verticalLine-word">
+        {% for tag in object.tags.all %}
+            {% if LANGUAGE_CODE == "ja" %}
+                <div class="tag-badge badge badge-primary" value="{{ tag.id }}">{{ tag.name }}</div>
+            {% elif LANGUAGE_CODE == "th" %}
+                <div class="tag-badge badge badge-primary" value="{{ tag.id }}">{{ tag.thai }}</div>
+            {% else %}
+                <div class="tag-badge badge badge-primary" value="{{ tag.id }}">{{ tag.slug }}</div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="col-md-4 verticalLine-word">
+    {% with object.id|get_thai_list as thai_list %}
+        <table class="table table-borderless table-trans">
+            <tbody>
+                {% for thai in thai_list %}
+                    <tr>
+                        <td class="no"><h6>{{ forloop.counter }}. </h6></td>
+                        <td class="thai"><h6>{{ thai.thai }}</h6></td>
+                        <td class="eng"><h6>{{ thai.english }}</h6></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endwith %}
+    </div>
+</div>
+<hr>
+

@@ -1,0 +1,99 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"ja" }}">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147976194-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-147976194-1');
+    </script>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <!-- Extra CSS -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block extra_css %}{% endblock %}
+
+    <title>GayifaaYeepun</title>
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/png">
+</head>
+
+<body>
+    <div id="content" class="container">
+        <nav class="navbar navbar-expand-md bg-faded align-items-end">
+            <a href="{% url 'search' %}" class="title navbar-brand"><img src="{% static 'img/title.png' %}" class="img-fluid" alt="GayifaaYeepun"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-items">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse justify-content-end flex-nowrap">
+                <form name="trans" id="trans" action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                    {% for field in form %}{{ field.as_hidden }}{% endfor %}
+                    <ul class="navbar-nav">
+                        <li class="nav-item-base">
+                            <div class="btn-dic">
+                                <a class="nav-link btn-link" href="{% url 'search' %}" role="button"><span class="btn-text">{% trans '単語・例文' %}</span></a>
+                            </div>
+                        </li>
+                        <li class="nav-item-base">
+                            <div class="btn-req">
+                                <a class="nav-link btn-link" href="{% url 'mail_input' %}" role="button"><span class="btn-text">{% trans 'リクエスト' %}</span></a>
+                            </div>
+                        </li>
+                        <li class="nav-item-base">
+                            <button class="btn" type="submit" form="trans" name="language" value="th"><img src="{% static 'img/thaiflag.png' %}" alt="Thai"></button>
+                        </li>
+                        <li class="nav-item-base">
+                            <button class="btn" type="submit" form="trans" name="language" value="ja"><img src="{% static 'img/japanflag.png' %}" alt="Japanese"></button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </nav>
+        <div class="collapse text-right" id="nav-items">
+                <ul class="list-group">
+                    <a class="list-group-item list-group-item-action" href="{% url 'search' %}" role="button"><span class="btn-text">{% trans '単語・例文' %}</span></a>
+                    <a class="list-group-item list-group-item-action" href="{% url 'mail_input' %}" role="button"><span class="btn-text">{% trans 'リクエスト' %}</span></a>
+                    <form id="menu-form-th" class="list-group-item list-group-item-action" name="trans"  action="{% url 'set_language' %}" method="post">
+                        {% csrf_token %}
+                        {% for field in form %}{{ field.as_hidden }}{% endfor %}
+                        <input type="hidden" name="language" value="th">
+                        <a href="#" onclick="document.getElementById('menu-form-th').submit()" class="list-group-item-action"><span class="menu-span">ภาษาไทย / タイ語</span><img class="menu-img" src="{% static 'img/thaiflag.png' %}"></a>
+                    </form>
+                    <form id="menu-form-ja" class="list-group-item list-group-item-action" name="trans" action="{% url 'set_language' %}" method="post">
+                        {% csrf_token %}
+                        {% for field in form %}{{ field.as_hidden }}{% endfor %}
+                        <input type="hidden" name="language" value="ja">
+                        <a href="#" onclick="document.getElementById('menu-form-ja').submit()" class="list-group-item-action"><span class="menu-span">ภาษาญี่ปุ่น / 日本語</span><img class="menu-img" src="{% static 'img/japanflag.png' %}"></a>
+                    </form>
+                </ul>
+
+            </div>
+        {% block content %}
+        {{ content }}
+        {% endblock %}
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    
+    <!-- Optional JavaScript -->
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

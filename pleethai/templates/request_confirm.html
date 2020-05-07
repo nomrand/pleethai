@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load i18n static %}
+{% block title %}{% trans 'リクエスト内容確認' %}{% endblock title %}
+
+{% block content %}
+<div class="col">
+    {% trans 'リクエスト内容確認' %}
+</div>
+<div class="container border rounded my-2 py-2">
+    <div class="container">
+        {{ form.name.label_tag }}
+        <p class="text-break">{{ form.name.value }}</p>
+    </div>
+    <hr>
+    <div class="container">
+        {{ form.mail1.label_tag }}
+        <p class="text-break">{{ form.mail1.value }}</p>
+    </div>
+    <hr>
+    <div class="container">
+        {{ form.content.label_tag }}
+        <p class="text-break">{{ form.content.value }}</p>
+    </div>
+</div>
+<div class="col">
+    {% trans 'この内容で管理者にリクエストメールを送信します。' %}
+</div>
+<div class="container">
+    <div class="row justify-content-start">
+        <div class="m-1">
+            <form action="{% url 'mail_complete' %}" method="POST">
+                <button type="submit" class="btn btn-primary btn-lg">{% trans '送信' %}</button>
+                {% for field in form %}{{ field.as_hidden }}{% endfor %}
+                {% csrf_token %}
+            </form>
+        </div>
+        <div class="m-1">
+            <form action="{% url 'mail_input' %}" method="POST">
+                <button type="submit" class="btn btn-primary btn-lg">{% trans '修正' %}</button>
+                {% for field in form %}{{ field.as_hidden }}{% endfor %}
+                {% csrf_token %}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

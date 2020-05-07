@@ -1,0 +1,26 @@
+{% load i18n tags %}
+<div class="row row-example" href="/example/{{ object.id }}/">
+    <div class="col-lg-5">
+        <div><h5>{{ object.japanese }}</h5></div>
+        <div>{{ object.hiragana }}</div>
+        <div>{{ object.roman }}</div>
+    </div>
+    <div class="col-lg-3 verticalLine-example">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% with object.id|get_tag_list as tag_list %}
+            {% for tag in tag_list %}
+                {% if LANGUAGE_CODE == "ja" %}
+                    <div class="tag-badge badge badge-primary" value="{{ tag.id }}">{{ tag.name }}</div>
+                {% elif LANGUAGE_CODE == "th" %}
+                    <div class="tag-badge badge badge-primary" value="{{ tag.id }}">{{ tag.thai }}</div>
+                {% else %}
+                    <div class="tag-badge badge badge-primary" value="{{ tag.id }}">{{ tag.slug }}</div>
+                {% endif %}
+            {% endfor %}
+        {% endwith %}
+    </div>
+    <div class="col-lg-4 verticalLine-example">
+        <div><h6>{{ object.thai }}</h6></div>
+    </div>
+</div>
+<hr>

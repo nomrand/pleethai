@@ -1,0 +1,44 @@
+{% load i18n tags %}
+{% get_current_language as LANGUAGE_CODE %}
+<div class="modal-body">
+    <div><h4>{{ object.japanese }}</h4></div>
+    <div>{{ object.hiragana }}</div>
+    <div>{{ object.roman }}</div>
+    <div>
+        {% with object.id|get_tag_list as tag_list %}
+            {% for tag in tag_list %}
+                {% if LANGUAGE_CODE == "ja" %}
+                    <div class="tag-badge badge badge-primary" value="{{ tag.id }}">{{ tag.name }}</div>
+                {% elif LANGUAGE_CODE == "th" %}
+                    <div class="tag-badge badge badge-primary" value="{{ tag.id }}">{{ tag.thai }}</div>
+                {% else %}
+                    <div class="tag-badge badge badge-primary" value="{{ tag.id }}">{{ tag.slug }}</div>
+                {% endif %}
+            {% endfor %}
+        {% endwith %}
+    </div>
+    <hr>
+    <div><h4>{{ object.thai }}</h4></div>
+    <div>{{ object.english }}</div>
+    {% with object.id|get_const_list as const_list %}
+        {% if const_list %}
+            <hr>
+            <div><h5>{% trans '構成語' %}</h5></div>
+            {% for const in const_list %}
+                {% with const.word_id.japanese_id.id|get_japanese as jp_obj %}
+                    <div class="card mb-2 modallink-word" href="/word/{{ jp_obj.id }}/">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6"><h6>{{ forloop.counter }}. {{ jp_obj.japanese }} {{ jp_obj.roman }}</h6></div>
+                                <div class="col-6"><h6>{{ const.word_id.thai }}</h6></div>
+                            </div>  
+                        </div>
+                    </div>
+                {% endwith %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %} 
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-danger" data-dismiss="modal">{% trans '閉じる' %}</button>
+</div>

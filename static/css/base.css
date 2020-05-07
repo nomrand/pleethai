@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=K2D|Noto+Sans+JP&display=swap');
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'K2D', sans-serif;
+}
+a.title {
+    max-width: 70%;
+    height: auto;
+}
+.navbar-toggler {
+    border-color: rgb(9,127,157);
+    bottom: 0;
+} 
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(9,127,157, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+#nav-items {
+    margin-bottom: 10px;
+}
+li.nav-item-base {
+    text-align: center;
+}
+div.btn-group {
+    align-self: flex-end;
+}
+div.btn-dic {
+    width: 114px;
+    height: 57px;
+    background-image: url("../img/btn-dic.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    flex-shrink: 0;
+}
+div.btn-req {
+    width: 97px;
+    height: 57px;
+    background-image: url("../img/btn-req.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    margin-left: 10px;
+    flex-shrink: 0;
+}
+a.btn-link {
+    padding-top: 1.2rem;
+}
+input.flag {
+    max-width: 100%;
+    height: auto;
+    background-position: center bottom;
+}
+.menu-img {
+    max-height: 21px;
+    width: auto;
+}
+.menu-span {
+    vertical-align: middle;
+    margin-right: 10px;
+}

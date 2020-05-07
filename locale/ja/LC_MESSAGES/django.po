@@ -1,0 +1,143 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-13 12:17+0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\pleethai\forms.py:5
+msgid "名前"
+msgstr "名前"
+
+#: .\pleethai\forms.py:6
+msgid "お名前（省略可）"
+msgstr "お名前（省略可）"
+
+#: .\pleethai\forms.py:7
+msgid "メールアドレス"
+msgstr "メールアドレス"
+
+#: .\pleethai\forms.py:8
+msgid "メールアドレス（省略可）"
+msgstr "メールアドレス（省略可）"
+
+#: .\pleethai\forms.py:9
+msgid "メールアドレス確認用"
+msgstr "メールアドレス確認用"
+
+#: .\pleethai\forms.py:10
+msgid "メールアドレス確認用（省略可）"
+msgstr "メールアドレス確認用（省略可）"
+
+#: .\pleethai\forms.py:11
+msgid "リクエスト内容"
+msgstr "リクエスト内容"
+
+#: .\pleethai\forms.py:12
+msgid ""
+"（例）ภาษาไทย（タイ語）が登録されていません。　「永遠に」ってタイ語でどう言い"
+"ますか？　単語のお気に入り機能が欲しいです。"
+msgstr ""
+"（例）ภาษาไทย（タイ語）が登録されていません。　「永遠に」ってタイ語でどう言い"
+"ますか？　単語のお気に入り機能が欲しいです。"
+
+#: .\pleethai\forms.py:14
+msgid "メールアドレスが確認用と一致しません。"
+msgstr "メールアドレスが確認用と一致しません。"
+
+#: .\pleethai\templates\base.html:45 .\pleethai\templates\base.html:61
+msgid "単語・例文"
+msgstr "単語・例文"
+
+#: .\pleethai\templates\base.html:48 .\pleethai\templates\base.html:62
+#: .\pleethai\templates\request.html:5 .\pleethai\templates\request.html:11
+msgid "リクエスト"
+msgstr "リクエスト"
+
+#: .\pleethai\templates\base.html:67 .\pleethai\templates\search.html:45
+msgid "タイ語"
+msgstr "タイ語"
+
+#: .\pleethai\templates\base.html:73 .\pleethai\templates\search.html:39
+msgid "日本語"
+msgstr "日本語"
+
+#: .\pleethai\templates\example_detail.html:26
+msgid "構成語"
+msgstr "構成語"
+
+#: .\pleethai\templates\example_detail.html:43
+#: .\pleethai\templates\tags.html:18 .\pleethai\templates\word_detail.html:60
+msgid "閉じる"
+msgstr "閉じる"
+
+#: .\pleethai\templates\request.html:14
+msgid "確認"
+msgstr "確認"
+
+#: .\pleethai\templates\request_complete.html:3
+#: .\pleethai\templates\request_complete.html:7
+msgid "リクエストメール送信完了"
+msgstr "リクエストメール送信完了"
+
+#: .\pleethai\templates\request_complete.html:10
+msgid "リクエストありがとうございました。管理者からの連絡をお待ちください。"
+msgstr "リクエストありがとうございました。管理者からの連絡をお待ちください。"
+
+#: .\pleethai\templates\request_confirm.html:3
+#: .\pleethai\templates\request_confirm.html:7
+msgid "リクエスト内容確認"
+msgstr "リクエスト内容確認"
+
+#: .\pleethai\templates\request_confirm.html:24
+msgid "この内容で管理者にリクエストメールを送信します。"
+msgstr "この内容で管理者にリクエストメールを送信します。"
+
+#: .\pleethai\templates\request_confirm.html:30
+msgid "送信"
+msgstr "送信"
+
+#: .\pleethai\templates\request_confirm.html:37
+msgid "修正"
+msgstr "修正"
+
+#: .\pleethai\templates\search.html:19
+msgid "検索ワード"
+msgstr "検索ワード"
+
+#: .\pleethai\templates\search.html:21 .\pleethai\templates\search.html:42
+msgid "タグ"
+msgstr "タグ"
+
+#: .\pleethai\templates\search.html:22 .\pleethai\templates\tags.html:17
+msgid "クリア"
+msgstr "クリア"
+
+#: .\pleethai\templates\search.html:27
+msgid "単語"
+msgstr "単語"
+
+#: .\pleethai\templates\search.html:30 .\pleethai\templates\word_detail.html:46
+msgid "例文"
+msgstr "例文"
+
+#: .\pleethai\templates\search.html:45
+msgid "英語"
+msgstr "英語"
+
+#: .\pleethai\templates\word_detail.html:30
+msgid "定義"
+msgstr "定義"

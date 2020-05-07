@@ -1,0 +1,5 @@
+/* This is for invalid form inputs to delete simbol. */
+.form-control.is-invalid, .was-validated .form-control:invalid {
+    padding-right: 0.75rem !important;
+    background-image: none !important;
+}

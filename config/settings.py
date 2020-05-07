@@ -1,3 +1,4 @@
+import dj_database_url
 """
 Django settings for config project.
 
@@ -37,10 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sass_processor',
     'import_export',
     'crispy_forms',
-    'pleethai'
+    'pleethai',
+    'taggit'
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -107,9 +109,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'th'
 
-TIME_ZONE = 'UTC'
+LANGUAGES = [('ja', 'Japanese'), ('th', 'Thai')]
+
+TIME_ZONE = 'Asia/Bangkok'
 
 USE_I18N = True
 
@@ -117,9 +121,12 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Locale
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 
 # Parse database configuration from $DATABASE_URL
-import dj_database_url
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 
@@ -129,9 +136,10 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
 
+# crispy
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 # Static asset configuration
-import os
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
@@ -139,10 +147,21 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-# Sass/SCSS
-SASS_PROCESSOR_AUTO_INCLUDE = False
-SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')
-SASS_PROCESSOR_INCLUDE_FILE_PATTERN = r'^.+\.scss$'
-SASS_PRECISION = 8
-SASS_OUTPUT_STYLE = 'compact'
-SASS_TEMPLATE_EXTS = ['.html', '.haml']
+# Mail send
+# FOR DEBUG
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'test.gaifaa@gmail.com'
+EMAIL_HOST_PASSWORD = 'gaifaa2019'
+EMAIL_USE_TLS = True
+
+REQUSET_MAIL_SEND_INFO = {
+    'subject': 'Pleethai Request Recieved',
+    'templete_path': 'mails/request.txt',
+    'from_email': 'test.gaifaa@gmail.com',
+    'recipient_list': [
+        'test.gaifaa@gmail.com',
+    ],
+}

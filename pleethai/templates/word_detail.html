@@ -1,0 +1,61 @@
+{% load i18n tags %}
+{% get_current_language as LANGUAGE_CODE %}
+<div class="modal-body">
+    <div><h4>{{ object.japanese }}</h4></div>
+    <div>{{ object.hiragana }}</div>
+    <div>{{ object.roman }}</div>
+    <div>
+        <div>
+            {% if LANGUAGE_CODE == "ja" %}
+                <div class="badge {{ object.wordclass_id.slug }}">{{ object.wordclass_id.japanese }}</div>
+            {% elif LANGUAGE_CODE == "th" %}
+                <div class="badge {{ object.wordclass_id.slug }}">{{ object.wordclass_id.thai }}</div>
+            {% else %}
+                <div class="badge {{ object.wordclass_id.slug }}">{{ object.wordclass_id.slug }}</div>
+            {% endif %}
+        </div>
+        <div>
+            {% for tag in object.tags.all %}
+                {% if LANGUAGE_CODE == "ja" %}
+                    <div class="tag-badge badge badge-primary" value="{{ tag.id }}">{{ tag.name }}</div>
+                {% elif LANGUAGE_CODE == "th" %}
+                    <div class="tag-badge badge badge-primary" value="{{ tag.id }}">{{ tag.thai }}</div>
+                {% else %}
+                    <div class="tag-badge badge badge-primary" value="{{ tag.id }}">{{ tag.slug }}</div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <hr>
+    <div><h5>{% trans '定義' %}</h5></div>
+    {% with object.id|get_thai_list as thai_list %}
+        {% for thai in thai_list %}
+            <div class="card mb-2">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6"><h6>{{ forloop.counter }}. {{ thai.thai }}</h6></div>
+                        <div class="col-6"><h6>{{ thai.english }}</h6></div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endwith %}
+    {% with object.id|get_example_list as example_list %}
+        {% if example_list %}
+            <hr>
+            <div><h5>{% trans '例文' %}</h5></div>
+            {% for example in example_list %}
+                <div class="card mb-2 modallink-example" href="/example/{{ example.id }}/">
+                    <div class="card-body">
+                        <div><h6>{{ forloop.counter }}. {{ example.japanese }}</h6></div>
+                        <div>{{ example.roman }}</div>
+                        <div>{{ example.thai }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-danger" data-dismiss="modal">{% trans '閉じる' %}</button>
+</div>

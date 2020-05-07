@@ -1,0 +1,20 @@
+{% load i18n %}
+<div class="modal-body">
+    {% get_current_language as LANGUAGE_CODE %}
+    {% for tag in object_list %}
+        {% if LANGUAGE_CODE == "ja" %}
+            <input type="checkbox" id="tag-toggle{{ tag.id }}" class="tag-toggle" data-toggle="toggle" data-on="{{ tag.name }} ({{ tag.num_times }})" data-off="{{ tag.name }} ({{ tag.num_times }})" value="{{ tag.id }}">
+        {% elif LANGUAGE_CODE == "th" %}
+            <input type="checkbox" id="tag-toggle{{ tag.id }}" class="tag-toggle" data-toggle="toggle" data-on="{{ tag.thai }} ({{ tag.num_times }})" data-off="{{ tag.thai }} ({{ tag.num_times }})" value="{{ tag.id }}">
+        {% else %}
+            <input type="checkbox" id="tag-toggle{{ tag.id }}" class="tag-toggle" data-toggle="toggle" data-on="{{ tag.slug }} ({{ tag.num_times }})" data-off="{{ tag.slug }} ({{ tag.num_times }})" value="{{ tag.id }}">
+        {% endif %}
+        {% empty %}
+        <div class="alert alert-danger">No available Tag.</div>
+    {% endfor %}
+</div>
+<div class="modal-footer">
+    <button id="tagclearbutton" type="button" class="btn btn-info">{% trans 'クリア' %}</button>
+    <button type="button" class="btn btn-danger" data-dismiss="modal">{% trans '閉じる' %}</button>
+</div>
+
