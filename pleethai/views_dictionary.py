@@ -48,7 +48,7 @@ def search_word(request):
 
     # Get word list
     result_list = SysWordJapanese.objects.filter(filter_obj).distinct() \
-        .select_related('wordclass_id').order_by("-searchs")[offset:limit]
+        .select_related('wordclass_id').order_by("-search")[offset:limit]
 
     # Return html
     htmlstr = ""

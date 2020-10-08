@@ -11,7 +11,7 @@
 |pronunciation_kana   | VARCHAR(127) |         | Thai katakana | 
 |order         | INT(2)        |               | The order of Thai word to display | 
 |english       | VARCHAR(127)  |               | English | 
-|searchs       | BIGINT(15)    |               | Number of Google search hits of Japanese | 
+|search        | BIGINT(15)    |               | Number of Google search hits of Japanese | 
 |wordclass_id  | INT(2)        | not null<br>foreign key(WordClass)    | Word Class ID | 
 |tags          | VARCHAR(511)  |               | Comma-separated Japanese tags | 
 

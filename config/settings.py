@@ -156,7 +156,7 @@ STATICFILES_DIRS = (
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'request_mails')
 
-REQUSET_MAIL_SEND_INFO = {
+REQUEST_MAIL_SEND_INFO = {
     'subject': 'GaifaaYeepun Request Mail',
     'templete_path': 'mails/request.txt',
     'from_email': 'from@test.com',

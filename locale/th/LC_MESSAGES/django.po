@@ -122,7 +122,7 @@ msgstr "แท็ก"
 
 #: .\pleethai\templates\search.html:22 .\pleethai\templates\tags.html:17
 msgid "クリア"
-msgstr "สะสาง"
+msgstr "ล้าง"
 
 #: .\pleethai\templates\search.html:27
 msgid "単語"

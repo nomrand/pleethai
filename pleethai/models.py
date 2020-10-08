@@ -21,7 +21,7 @@ class Word (models.Model):
     pronunciation_kana = models.CharField(max_length=127, null=True, blank=True)
     order = models.PositiveSmallIntegerField(default=1)
     english = models.CharField(max_length=127, null=True, blank=True)
-    searchs = models.BigIntegerField(default=0)
+    search = models.BigIntegerField(default=0)
     wordclass_id = models.ForeignKey("WordClass", on_delete=models.PROTECT)
     tags = models.CharField(max_length=511, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -38,7 +38,7 @@ class SysWordJapanese (models.Model):
     japanese = models.CharField(max_length=127, null=False, blank=False)
     hiragana =  models.CharField(max_length=127, null=False, blank=False)
     roman = models.CharField(max_length=127, null=True, blank=True)
-    searchs = models.BigIntegerField(default=0)
+    search = models.BigIntegerField(default=0)
     wordclass_id = models.ForeignKey("WordClass", on_delete=models.PROTECT)
     tags = TaggableManager(through=TaggedItem, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -59,7 +59,7 @@ class SysWordJapanese (models.Model):
             japanese = word.japanese, \
             hiragana = word.hiragana, \
             roman = word.roman, \
-            searchs = word.searchs, \
+            search = word.search, \
             wordclass_id = word.wordclass_id, \
         )
 

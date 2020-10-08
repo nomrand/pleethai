@@ -11,7 +11,7 @@
 |pronunciation_kana   | VARCHAR(127) |         | タイ語カタカナ | 
 |order         | INT(2)        |               | タイ語訳表示順 | 
 |english       | VARCHAR(127)  |               | 英語 | 
-|searchs       | BIGINT(15)    |               | 日本語名のGoogle検索件数 | 
+|search        | BIGINT(15)    |               | 日本語名のGoogle検索件数 | 
 |wordclass_id  | INT(2)        | not null<br>foreign key(WordClass)    | 品詞ID | 
 |tags          | VARCHAR(511)  |               | タグの日本語名をカンマ(,)区切りで記述する | 
 
