@@ -184,10 +184,16 @@ function search() {
 
 function loadWordList() {
     $('#wordloading').show();
-    gtag('js', new Date());
-    gtag('config', 'UA-147976194-1', {
-        'page_path': '/wordsearch' + CreateQuery()
-    });
+    
+    var query = CreateQuery();
+    if(query) {
+        // Send to Google Analytics only with keyword or tags
+        // Init load & Clearing search condition will be not sent
+        gtag('js', new Date());
+        gtag('config', 'UA-147976194-1', {
+            'page_path': '/wordsearch' + query
+        });
+    }
     wordPage++;
     $.ajax({
         'url': 'searchword',
@@ -221,10 +227,16 @@ function loadWordList() {
 
 function loadExampleList() {
     $('#exampleloading').show();
-    gtag('js', new Date());
-    gtag('config', 'UA-147976194-1', {
-        'page_path': '/examplesearch' + CreateQuery()
-    });
+
+    var query = CreateQuery();
+    if(query) {
+        // Send to Google Analytics only with keyword or tags
+        // Init load & Clearing search condition will be not sent
+        gtag('js', new Date());
+        gtag('config', 'UA-147976194-1', {
+            'page_path': '/examplesearch' + query
+        });
+    }
     examplePage++;
     $.ajax({
         'url': 'searchexample',
