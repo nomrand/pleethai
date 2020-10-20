@@ -12,6 +12,13 @@
 
     gtag('config', 'UA-147976194-1');
 
+    // send PV to Google Analytics
+    function sendGAPageView(page_path){
+        gtag('config', 'UA-147976194-1', {
+            'page_path': page_path
+        });
+    }
+
     // send event to Google Analytics
     // category & label are option
     function sendGAEvent(category, action, label, value){
