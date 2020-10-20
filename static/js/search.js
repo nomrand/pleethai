@@ -131,6 +131,16 @@ $(document).ready(function(){
         $('#detail-modal').modal('hide');
         badgeClickedFlag = false;
         searchedFlag = false;
+    })
+    // Language form submit
+    .on('submit', 'form[name="trans"]', function() {
+        // when submit happened by button
+        var th_jp = $(document.activeElement).attr('value');
+        if(!th_jp){
+            // when submit happened by a-tag
+            th_jp = $(this).find('input[name="language"]').attr('value');
+        }
+        sendGAEvent("UI", "language_change", th_jp, 1);
     });
 
     // Page top button
@@ -210,8 +220,14 @@ function loadWordList() {
             $('#wordcontainer').append('<div class="alert alert-warning">'
             + NO_RESULT_MESSAGE + '</div>');
         } else if (response) {
+            // load page success
             $('#wordcontainer .alert').remove();
             $('#wordcontainer').append(response);
+
+            if (wordPage > 1) {
+                // append load 
+                sendGAEvent("page_load", "wordPage", query, wordPage);
+            }
         }
         
     })
@@ -253,8 +269,14 @@ function loadExampleList() {
             $('#examplecontainer').append('<div class="alert alert-warning">'
             + NO_RESULT_MESSAGE + '</div>');
         } else if (response) {
+            // load page success
             $('#examplecontainer .alert').remove();
             $('#examplecontainer').append(response);
+
+            if (examplePage > 1) {
+                // append load 
+                sendGAEvent("page_load", "examplePage", query, examplePage);
+            }
         }
     })
     .fail(function() {

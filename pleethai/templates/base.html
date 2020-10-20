@@ -11,6 +11,16 @@
     gtag('js', new Date());
 
     gtag('config', 'UA-147976194-1');
+
+    // send event to Google Analytics
+    // category & label are option
+    function sendGAEvent(category, action, label, value){
+        gtag('event', action, {
+            'event_category': category,
+            'event_label': label,
+            'value': value
+        });
+    }
     </script>
 
     <!-- Required meta tags -->
@@ -68,13 +78,13 @@
                         {% csrf_token %}
                         {% for field in form %}{{ field.as_hidden }}{% endfor %}
                         <input type="hidden" name="language" value="th">
-                        <a href="#" onclick="document.getElementById('menu-form-th').submit()" class="list-group-item-action"><span class="menu-span">ภาษาไทย / タイ語</span><img class="menu-img" src="{% static 'img/thaiflag.png' %}"></a>
+                        <a href="#" onclick="$('#menu-form-th').submit()" class="list-group-item-action"><span class="menu-span">ภาษาไทย / タイ語</span><img class="menu-img" src="{% static 'img/thaiflag.png' %}"></a>
                     </form>
                     <form id="menu-form-ja" class="list-group-item list-group-item-action" name="trans" action="{% url 'set_language' %}" method="post">
                         {% csrf_token %}
                         {% for field in form %}{{ field.as_hidden }}{% endfor %}
                         <input type="hidden" name="language" value="ja">
-                        <a href="#" onclick="document.getElementById('menu-form-ja').submit()" class="list-group-item-action"><span class="menu-span">ภาษาญี่ปุ่น / 日本語</span><img class="menu-img" src="{% static 'img/japanflag.png' %}"></a>
+                        <a href="#" onclick="$('#menu-form-ja').submit()" class="list-group-item-action"><span class="menu-span">ภาษาญี่ปุ่น / 日本語</span><img class="menu-img" src="{% static 'img/japanflag.png' %}"></a>
                     </form>
                 </ul>
 
