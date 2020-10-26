@@ -1,1 +1,1 @@
-web: gunicorn pleethai.wsgi
+web: gunicorn config.wsgi
