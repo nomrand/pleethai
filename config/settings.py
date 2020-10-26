@@ -1,5 +1,6 @@
 import dj_database_url
 import django.core.management.utils
+import django_heroku
 """
 Django settings for config project.
 
@@ -173,3 +174,6 @@ try:
     from .production_settings import *
 except ImportError:
     pass
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
