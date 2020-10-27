@@ -20,13 +20,17 @@
     }
 
     // send event to Google Analytics
-    // category & label are option
+    // label is an option
     function sendGAEvent(category, action, label, value){
-        gtag('event', action, {
+        var opt = {
             'event_category': category,
             'event_label': label,
             'value': value
-        });
+        };
+        if(!label){
+            delete opt['event_label'];
+        }
+        gtag('event', action, opt);
     }
     </script>
 
