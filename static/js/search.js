@@ -5,11 +5,10 @@ var WAIT_TIME = 500;
 var wordPage = 0;
 var examplePage = 0;
 var holdFlag = false;
-var clearFlag = false;
-var badgeClickedFlag = false;
-var searchedFlag = false;
 var inputTimer;
 var clickTimer;
+
+var tagsModalOpen = '';
 
 $(document).ready(function(){
     loadWordList();
@@ -82,10 +81,9 @@ $(document).ready(function(){
             } else if($(this).is('.modallink-word, .modallink-example')) {
                 $("#detail-modal .modal-content").load($(this).attr("href"));
             }
-            gtag('js', new Date());
-            gtag('config', 'UA-147976194-1', {
-                'page_path': $(this).attr("href")
-            });
+
+            // modal word/example access
+            sendGAPageView($(this).attr("href"));
         }
     })
     // Load items
@@ -99,38 +97,51 @@ $(document).ready(function(){
             loadExampleList();
         }
     })
-    // Create toggles
+    
+    // Tag modal window
     .on('shown.bs.modal', '#tag-modal', function() {
+        // Create toggles
         $('.tag-toggle').bootstrapToggle();
+        tagsModalOpen = getTags();
     })
-    // Search by change toggle
-    .on('change', '.tag-toggle', function(e) {
-        if (!clearFlag) {
-            if (!searchedFlag) {
-                search();
-            }
-            if (badgeClickedFlag) {
-                searchedFlag = true;
-            }
+    .on('hidden.bs.modal', '#tag-modal', function() {
+        var tagsModalClose = getTags();
+        if(tagsModalOpen != tagsModalClose){
+            // Search when tag state changed
+            search();
         }
     })
     .on('click', '#tagclearbutton', function() {
         allToggleOff();
-        search();
     })
+
     // Click tag in search result
     .on('click', '.tag-badge', function() {
-        badgeClickedFlag = true;
+
         // clear all tag toggles
         allToggleOff();
-        // check selected tag
+        // clear keyword
         $('#keyword').val('');
+
+        // check selected tag
         var value =  $(this).attr('value');
         $('#tag-toggle' + value).prop('checked', true).change();
+        
+        search();
+
         // close modal
         $('#detail-modal').modal('hide');
-        badgeClickedFlag = false;
-        searchedFlag = false;
+    })
+
+    // Language form submit
+    .on('submit', 'form[name="trans"]', function() {
+        // when submit happened by button
+        var th_jp = $(document.activeElement).attr('value');
+        if(!th_jp){
+            // when submit happened by a-tag
+            th_jp = $(this).find('input[name="language"]').attr('value');
+        }
+        sendGAEvent("UI", "language_change", th_jp, 1);
     });
 
     // Page top button
@@ -184,10 +195,15 @@ function search() {
 
 function loadWordList() {
     $('#wordloading').show();
-    gtag('js', new Date());
-    gtag('config', 'UA-147976194-1', {
-        'page_path': '/wordsearch' + CreateQuery()
-    });
+    
+    var query = CreateQuery();
+    if(query) {
+        // Send to Google Analytics only with keyword or tags
+        // Init load & Clearing search condition will be not sent
+        sendGAPageView('/wordsearch' + query);
+        // send tag event
+        SendTagsEvent('wordsearch');
+    }
     wordPage++;
     $.ajax({
         'url': 'searchword',
@@ -204,8 +220,14 @@ function loadWordList() {
             $('#wordcontainer').append('<div class="alert alert-warning">'
             + NO_RESULT_MESSAGE + '</div>');
         } else if (response) {
+            // load page success
             $('#wordcontainer .alert').remove();
             $('#wordcontainer').append(response);
+
+            if (wordPage > 1) {
+                // append load 
+                sendGAEvent("page_load", "wordPage", query, wordPage);
+            }
         }
         
     })
@@ -221,10 +243,15 @@ function loadWordList() {
 
 function loadExampleList() {
     $('#exampleloading').show();
-    gtag('js', new Date());
-    gtag('config', 'UA-147976194-1', {
-        'page_path': '/examplesearch' + CreateQuery()
-    });
+
+    var query = CreateQuery();
+    if(query) {
+        // Send to Google Analytics only with keyword or tags
+        // Init load & Clearing search condition will be not sent
+        sendGAPageView('/examplesearch' + query);
+        // send tag event
+        SendTagsEvent('examplesearch');
+    }
     examplePage++;
     $.ajax({
         'url': 'searchexample',
@@ -241,8 +268,14 @@ function loadExampleList() {
             $('#examplecontainer').append('<div class="alert alert-warning">'
             + NO_RESULT_MESSAGE + '</div>');
         } else if (response) {
+            // load page success
             $('#examplecontainer .alert').remove();
             $('#examplecontainer').append(response);
+
+            if (examplePage > 1) {
+                // append load 
+                sendGAEvent("page_load", "examplePage", query, examplePage);
+            }
         }
     })
     .fail(function() {
@@ -282,9 +315,7 @@ function loadTagList() {
 
 // Clear tags
 function allToggleOff() {
-    clearFlag = true;
     $('.tag-toggle').prop('checked', false).change();
-    clearFlag = false;
 }
 
 // Get selected tags
@@ -306,4 +337,16 @@ function CreateQuery() {
         query += "?tags=" + getTags();
     }
     return query;
+}
+
+// Send tags event for Google Analytics
+function SendTagsEvent(searchtype) {
+    var tags = getTags();
+    if(tags){
+        tags.split('+').forEach(function(value) {
+            // If multiple tags selected (such as tag1+tag2+tag3),
+            // send each tag as an event
+            sendGAEvent(searchtype, "tag", value, 1);
+        })
+    }
 }
