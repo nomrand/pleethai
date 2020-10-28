@@ -4,6 +4,8 @@ from taggit.managers import TaggableManager
 
 class Tag(TagBase):
     thai = models.CharField(max_length=100)
+    class Meta:
+        ordering = ['id']
 
 class TaggedItem(GenericTaggedItemBase):
     tag = models.ForeignKey(Tag, related_name="%(app_label)s_%(class)s_items", on_delete=models.CASCADE)
