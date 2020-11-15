@@ -1,6 +1,7 @@
 var SERVER_ERROR_MESSAGE = "An unexpected error occurred while communicating the server."
 var NO_RESULT_MESSAGE = "No results found.";
 var WAIT_TIME = 500;
+var ICON_ELEMENT_SOUND = '<span class="material-icons">volume_up</span>';
 
 var wordPage = 0;
 var examplePage = 0;
@@ -10,10 +11,17 @@ var clickTimer;
 
 var tagsModalOpen = '';
 
+var speechVoiceAvailbale = {
+    "ja" : undefined,
+    "th" : undefined,
+    "en" : undefined
+}
+
 $(document).ready(function(){
     loadWordList();
     loadExampleList();
     loadTagList();
+    setVoices();
 
     // Search
     $('#content').on('input', '#keyword', function(e) { 
@@ -76,10 +84,16 @@ $(document).ready(function(){
         if (!holdFlag) {
             if ($(this).is('.row-word, .row-example')) {
                 $( "#detail-modal .modal-content" ).load($(this).attr("href"), function() {
+                    // add speak function
+                    setSpeechFunction();
+                    // show modal
                     $("#detail-modal").modal("show");
                 });
             } else if($(this).is('.modallink-word, .modallink-example')) {
-                $("#detail-modal .modal-content").load($(this).attr("href"));
+                $("#detail-modal .modal-content").load($(this).attr("href"), function() {
+                    // add speak function
+                    setSpeechFunction();
+                });
             }
 
             // modal word/example access
@@ -349,4 +363,59 @@ function SendTagsEvent(searchtype) {
             sendGAEvent(searchtype, "tag", value, 1);
         })
     }
+}
+
+function setVoices() {
+    speechSynthesis.onvoiceschanged = function() {
+        // loop for each language (jp, th, en)
+        $.each(speechVoiceAvailbale, function(targetLang, __voice) {
+            // loop for browser-available-voices
+            $.each(speechSynthesis.getVoices(), function(__index, voice) {
+                if(voice.lang.startsWith(targetLang)){
+                    // set available voice for target language
+                    speechVoiceAvailbale[targetLang] = voice;
+                    return false;
+                }
+            });
+        });
+    }
+    // first set the voices
+    speechSynthesis.onvoiceschanged();
+}
+
+function setSpeechFunction() {
+    $.each($(".speech-button"), function(__index, target){
+        var availableVoice;
+        $.each(speechVoiceAvailbale, function(lang, voice) {
+            // Search the available voice for target element
+            if($(target).hasClass('speech-' + lang)){
+                availableVoice = voice;
+                return false;
+            }
+        });
+    
+        // if browser can speak target word, add click function to speak 
+        if (availableVoice){
+            // base element to find speak word
+            var base = $(target).find('.speech-target');
+            if(base.length != 1){
+                base = $(target);
+            }
+            var text = base.text();
+            $(target).click(function(){
+                var msg = new SpeechSynthesisUtterance();
+        
+                msg.lang = availableVoice.lang;
+                msg.voice = availableVoice;
+                msg.text = text;
+                msg.rate = 0.8; // speed (min 0 - max 10)
+                
+                speechSynthesis.cancel();
+                speechSynthesis.speak(msg);
+            });
+        
+            // add sound icon
+            base.append(ICON_ELEMENT_SOUND);
+        }
+    })
 }

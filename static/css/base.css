@@ -57,3 +57,9 @@ input.flag {
     vertical-align: middle;
     margin-right: 10px;
 }
+
+/* icons */
+.material-icons {
+    margin-left: 5px;
+    font-size: inherit !important;
+}
