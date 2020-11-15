@@ -4,7 +4,7 @@ from import_export.admin import ImportExportModelAdmin
 from django.conf.urls import url
 from django.contrib import messages
 from django.shortcuts import redirect
-from pleethai.models import Word, SysWordJapanese, SysWordThai, WordClass, Example, Constituent, Tag, TaggedItem
+from pleethai.models import Word, SysWordJapanese, SysWordConnector, WordClass, Example, Constituent, Tag, TaggedItem
 from pleethai.common import Common
 from taggit.utils import _parse_tags
 from django.db import models
@@ -58,29 +58,29 @@ class WordAdmin(ImportExportModelAdmin):
             ids = model.objects.values_list('pk', flat=True)[:100]
             model.objects.filter(pk__in = ids).delete()
             
-    # Create Sys_word_Japanse table and Sys_Word_Thai table from Word table
+    # Create SysWordJapanse table and SysWordConnector table from Word table
     def update_system_tables(self, request):
         all_words = Word.objects.all()
         sys_japanese = []
-        sys_thai = []
+        sys_word_con = []
         temp_constituent = []
         try:
             for word in all_words:
-                # If there is not word in sys_japanese, add japanese to Sys_Word_Japanese table
+                # Add a Word record (japanese & hiragana unique) to SysWordJapanese table
                 if not Common.contains(sys_japanese, word, self.exist_japanese):
                     sys_japanese.append(SysWordJapanese.create(word))
-                # Add thai to Sys_Word_Thai table
-                tempThai = SysWordThai.create(word, sys_japanese)
-                if tempThai != None:
-                    sys_thai.append(tempThai)
+                # Add a Word record to SysWordConnector table
+                tempConnect = SysWordConnector.create(word, sys_japanese)
+                if tempConnect != None:
+                    sys_word_con.append(tempConnect)
             # delete and recreate
             for con_dict in Constituent.objects.values():
                 temp_constituent.append(Constituent(**con_dict))
             self.delete_all(Constituent)
-            self.delete_all(SysWordThai)
+            self.delete_all(SysWordConnector)
             self.delete_all(SysWordJapanese)
             SysWordJapanese.objects.bulk_create(sys_japanese)
-            SysWordThai.objects.bulk_create(sys_thai)
+            SysWordConnector.objects.bulk_create(sys_word_con)
             Constituent.objects.bulk_create(temp_constituent)
             self.update_tags()
             messages.info(request, "Succeeded to update system tables")
@@ -113,7 +113,7 @@ class TagAdmin(ImportExportModelAdmin):
 
 admin.site.register(Word, WordAdmin)
 admin.site.register(SysWordJapanese)
-admin.site.register(SysWordThai)
+admin.site.register(SysWordConnector)
 admin.site.register(WordClass,WordClassAdmin)
 admin.site.register(Example, ExampleAdmin)
 admin.site.register(Constituent, ConstituentAdmin)

@@ -62,7 +62,7 @@ class SysWordJapanese (models.Model):
             wordclass_id = word.wordclass_id, \
         )
 
-class SysWordThai (models.Model):
+class SysWordConnector (models.Model):
     id = models.PositiveIntegerField(primary_key=True)
     japanese_id = models.ForeignKey("SysWordJapanese", on_delete=models.PROTECT)
     word_id = models.ForeignKey("Word", on_delete=models.PROTECT)
@@ -110,7 +110,7 @@ class Example (models.Model):
 class Constituent (models.Model):
     id = models.PositiveIntegerField(primary_key=True)
     example_id = models.ForeignKey("Example", on_delete=models.PROTECT)
-    word_id = models.ForeignKey("SysWordThai", on_delete=models.PROTECT)
+    word_id = models.ForeignKey("SysWordConnector", on_delete=models.PROTECT)
     order = models.PositiveSmallIntegerField(null=False)
 
     class Meta:

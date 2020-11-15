@@ -3,7 +3,7 @@ from django.views import generic
 from django.template.loader import render_to_string
 from django.http import HttpResponse
 from django.db.models import Q, Count
-from pleethai.models import SysWordJapanese, SysWordThai, Example, Constituent, Tag
+from pleethai.models import SysWordJapanese, SysWordConnector, Example, Constituent, Tag
 
 PAGENATE_BY = 20
 TAG_CATEGORIZED_BY = 100
@@ -33,8 +33,8 @@ def search_word(request):
     # Create filter object
     filter_obj = Q()
     if keyword:
-        # Search and get japanese id list from SysWordThai
-        id_list = SysWordThai.objects.filter( \
+        # Search and get japanese id list from SysWordConnector
+        id_list = SysWordConnector.objects.filter( \
             Q(japanese_id__japanese__icontains=keyword) | \
             Q(japanese_id__hiragana__icontains=keyword) | \
             Q(japanese_id__roman__icontains=keyword) | \
@@ -45,7 +45,7 @@ def search_word(request):
         filter_obj.add(Q(id__in=id_list), Q.AND)
 
     if tags:
-        id_list = SysWordThai.objects.filter( \
+        id_list = SysWordConnector.objects.filter( \
             Q(tags__id__in=tags.split('+')) \
             ).values_list("japanese_id", flat=True).distinct()
         filter_obj.add(Q(id__in=id_list), Q.AND)
