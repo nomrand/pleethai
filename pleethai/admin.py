@@ -6,7 +6,6 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from pleethai.models import Word, SysWordJapanese, SysWordThai, WordClass, Example, Constituent, Tag, TaggedItem
 from pleethai.common import Common
-from taggit.utils import _parse_tags
 from django.db import models
 
 class WordResource(resources.ModelResource):
@@ -82,18 +81,11 @@ class WordAdmin(ImportExportModelAdmin):
             SysWordJapanese.objects.bulk_create(sys_japanese)
             SysWordThai.objects.bulk_create(sys_thai)
             Constituent.objects.bulk_create(temp_constituent)
-            self.update_tags()
             messages.info(request, "Succeeded to update system tables")
         except Exception as e:
             messages.error(request, "Failed to update system tables")
             messages.error(request, str(e))
         return redirect(request.META['HTTP_REFERER'])
-
-    # Update tags
-    def update_tags(self):
-        for sys_word in SysWordJapanese.objects.all():
-            for tag in _parse_tags(Word.objects.filter(id=sys_word.id).first().tags):
-                sys_word.tags.add(tag)
 
 class WordClassAdmin(ImportExportModelAdmin):
     resource_class = WordClassResource

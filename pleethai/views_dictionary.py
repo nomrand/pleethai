@@ -38,14 +38,17 @@ def search_word(request):
             Q(japanese_id__japanese__icontains=keyword) | \
             Q(japanese_id__hiragana__icontains=keyword) | \
             Q(japanese_id__roman__icontains=keyword) | \
-            Q(thai__icontains=keyword) | \
-            Q(pronunciation_kana__icontains=keyword) | \
-            Q(english__icontains=keyword) \
-            ).select_related('japanese_id').values_list("japanese_id", flat=True).distinct()
+            Q(word_id__thai__icontains=keyword) | \
+            Q(word_id__pronunciation_kana__icontains=keyword) | \
+            Q(word_id__english__icontains=keyword) \
+            ).select_related('word_id').select_related('japanese_id').values_list("japanese_id", flat=True).distinct()
         filter_obj.add(Q(id__in=id_list), Q.AND)
 
     if tags:
-        filter_obj.add(Q(tags__id__in=tags.split('+')), Q.AND)
+        id_list = SysWordThai.objects.filter( \
+            Q(tags__id__in=tags.split('+')) \
+            ).values_list("japanese_id", flat=True).distinct()
+        filter_obj.add(Q(id__in=id_list), Q.AND)
 
     # Get word list
     result_list = SysWordJapanese.objects.filter(filter_obj).distinct() \
@@ -81,8 +84,8 @@ def search_example(request):
         filter_obj.add(Q(english__icontains=keyword), Q.OR)
 
     if tags:
-        id_list = Constituent.objects.filter(word_id__japanese_id__tags__id__in=tags.split('+')) \
-            .select_related('word_id').select_related('japanese_id').values_list('example_id', flat= True).distinct()
+        id_list = Constituent.objects.filter(word_id__tags__id__in=tags.split('+')) \
+            .select_related('word_id').values_list('example_id', flat= True).distinct()
         filter_obj.add(Q(id__in=id_list), Q.AND)
     
     # Get example list

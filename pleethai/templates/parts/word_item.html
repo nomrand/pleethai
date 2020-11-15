@@ -15,7 +15,8 @@
         </div>
     </div>
     <div class="col-md-4 verticalLine-word">
-        {% for tag in object.tags.all %}
+    {% with object.id|get_tag_list_by_sysword as tag_list %}
+        {% for tag in tag_list %}
             {% if LANGUAGE_CODE == "ja" %}
                 <div class="tag-badge badge badge-primary" value="{{ tag.id }}">{{ tag.name }}</div>
             {% elif LANGUAGE_CODE == "th" %}
@@ -24,6 +25,7 @@
                 <div class="tag-badge badge badge-primary" value="{{ tag.id }}">{{ tag.slug }}</div>
             {% endif %}
         {% endfor %}
+    {% endwith %}
     </div>
     <div class="col-md-4 verticalLine-word">
     {% with object.id|get_thai_list as thai_list %}
@@ -32,8 +34,8 @@
                 {% for thai in thai_list %}
                     <tr>
                         <td class="no"><h6>{{ forloop.counter }}. </h6></td>
-                        <td class="thai"><h6>{{ thai.thai }}</h6></td>
-                        <td class="eng"><h6>{{ thai.english }}</h6></td>
+                        <td class="thai"><h6>{{ thai.word_id.thai }}</h6></td>
+                        <td class="eng"><h6>{{ thai.word_id.english }}</h6></td>
                     </tr>
                 {% endfor %}
             </tbody>
