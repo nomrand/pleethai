@@ -7,7 +7,7 @@
     </div>
     <div class="col-lg-3 verticalLine-example">
         {% get_current_language as LANGUAGE_CODE %}
-        {% with object.id|get_tag_list as tag_list %}
+        {% with object.id|get_tags_by_example as tag_list %}
             {% for tag in tag_list %}
                 {% if LANGUAGE_CODE == "ja" %}
                     <div class="tag-badge badge badge-primary" value="{{ tag.id }}">{{ tag.name }}</div>

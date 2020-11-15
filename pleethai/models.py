@@ -1,9 +1,12 @@
 from django.db import models
 from taggit.models import TagBase, GenericTaggedItemBase
 from taggit.managers import TaggableManager
+from taggit.utils import _parse_tags
 
 class Tag(TagBase):
     thai = models.CharField(max_length=100)
+    class Meta:
+        ordering = ['id']
 
 class TaggedItem(GenericTaggedItemBase):
     tag = models.ForeignKey(Tag, related_name="%(app_label)s_%(class)s_items", on_delete=models.CASCADE)
@@ -40,9 +43,6 @@ class SysWordJapanese (models.Model):
     roman = models.CharField(max_length=127, null=True, blank=True)
     search = models.BigIntegerField(default=0)
     wordclass_id = models.ForeignKey("WordClass", on_delete=models.PROTECT)
-    tags = TaggableManager(through=TaggedItem, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         unique_together = ("japanese", "hiragana")
@@ -63,22 +63,11 @@ class SysWordJapanese (models.Model):
             wordclass_id = word.wordclass_id, \
         )
 
-class SysWordThai (models.Model):
+class SysWordConnector (models.Model):
     id = models.PositiveIntegerField(primary_key=True)
     japanese_id = models.ForeignKey("SysWordJapanese", on_delete=models.PROTECT)
-    thai =  models.CharField(max_length=127, null=False, blank=False)
-    pronunciation_symbol = models.CharField(max_length=127, null=True, blank=True)
-    pronunciation_kana = models.CharField(max_length=127, null=True, blank=True)
-    english = models.CharField(max_length=127, null=True, blank=True)
-    order = models.PositiveSmallIntegerField(default=1)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        unique_together = ("japanese_id", "thai")
-    
-    def __str__(self):
-        return str(self.id) + " [" + self.thai + "]"
+    word_id = models.ForeignKey("Word", on_delete=models.PROTECT)
+    tags = TaggableManager(through=TaggedItem, blank=True)
 
     @classmethod
     def create(self, word: Word, sys_japanese):
@@ -89,15 +78,14 @@ class SysWordThai (models.Model):
             if item.japanese == word.japanese and item.hiragana == word.hiragana), None)
         if japanese == None:
             return None
-        return self( \
+
+        instance = self( \
             id = word.id, \
             japanese_id = japanese, \
-            thai = word.thai, \
-            pronunciation_symbol = word.pronunciation_symbol, \
-            pronunciation_kana = word.pronunciation_kana, \
-            english = word.english, \
-            order = word.order
+            word_id = word, \
         )
+        instance.tags.add(*_parse_tags(word.tags))
+        return instance
 
 class WordClass (models.Model): 
     id = models.PositiveSmallIntegerField(primary_key=True)
@@ -126,7 +114,7 @@ class Example (models.Model):
 class Constituent (models.Model):
     id = models.PositiveIntegerField(primary_key=True)
     example_id = models.ForeignKey("Example", on_delete=models.PROTECT)
-    word_id = models.ForeignKey("SysWordThai", on_delete=models.PROTECT)
+    word_id = models.ForeignKey("SysWordConnector", on_delete=models.PROTECT)
     order = models.PositiveSmallIntegerField(null=False)
 
     class Meta:

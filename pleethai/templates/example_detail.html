@@ -7,7 +7,7 @@
         <div>{{ object.roman }}</div>
     </section>
     <div>
-        {% with object.id|get_tag_list as tag_list %}
+        {% with object.id|get_tags_by_example as tag_list %}
             {% for tag in tag_list %}
                 {% if LANGUAGE_CODE == "ja" %}
                     <div class="tag-badge badge badge-primary" value="{{ tag.id }}">{{ tag.name }}</div>
@@ -20,19 +20,19 @@
         {% endwith %}
     </div>
     <hr>
-    <div class="speech-button speech-th"><h4 class="speech-target">{{ object.thai }}</h4></div>
-    <div class="speech-button speech-en">{{ object.english }}</div>
-    {% with object.id|get_const_list as const_list %}
+    <div><h4>{{ object.thai }}</h4></div>
+    <div>{{ object.english }}</div>
+    {% with object.id|get_consts_by_example as const_list %}
         {% if const_list %}
             <hr>
             <div><h5>{% trans '構成語' %}</h5></div>
             {% for const in const_list %}
-                {% with const.word_id.japanese_id.id|get_japanese as jp_obj %}
-                    <div class="card mb-2 modallink-word" href="/word/{{ jp_obj.id }}/">
+            {% with const.word_id as word_con %}
+                    <div class="card mb-2 modallink-word" href="/word/{{ word_con.japanese_id.id }}/">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-6"><h6>{{ forloop.counter }}. {{ jp_obj.japanese }} {{ jp_obj.roman }}</h6></div>
-                                <div class="col-6"><h6>{{ const.word_id.thai }}</h6></div>
+                                <div class="col-6"><h6>{{ forloop.counter }}. {{ word_con.word_id.japanese }} {{ word_con.word_id.roman }}</h6></div>
+                                <div class="col-6"><h6>{{ word_con.word_id.thai }}</h6></div>
                             </div>  
                         </div>
                     </div>

@@ -1,32 +1,38 @@
 {% load i18n static %}
+{% load settings_tag %}
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE|default:"ja" }}">
 
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147976194-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id={% get_settings 'GAID' %}"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'UA-147976194-1');
+    var GAID="{% get_settings 'GAID' %}";
+    gtag('config', GAID);
 
     // send PV to Google Analytics
     function sendGAPageView(page_path){
-        gtag('config', 'UA-147976194-1', {
+        gtag('config', GAID, {
             'page_path': page_path
         });
     }
 
     // send event to Google Analytics
-    // category & label are option
+    // label is an option
     function sendGAEvent(category, action, label, value){
-        gtag('event', action, {
+        var opt = {
             'event_category': category,
             'event_label': label,
             'value': value
-        });
+        };
+        if(!label){
+            delete opt['event_label'];
+        }
+        gtag('event', action, opt);
     }
     </script>
 

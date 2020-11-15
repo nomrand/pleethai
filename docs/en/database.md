@@ -14,7 +14,7 @@
 | ------------ | ------------- |
 | TaggedItem  | Table for the package that uses tag (Django-Taggit) |
 | SysWordJapanese | Table separated from "Word". One record means one Japanese word |
-| SysWordThai     | Table separated from "Word". One record means one Thai word |
+| SysWordConnector | Table separated from "Word". One record means one Thai word |
 
 
 [Click here for details on each table column](./database_detail.md)
