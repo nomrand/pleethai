@@ -19,7 +19,8 @@ def get_tag_list(value):
 # Custom template tag for get example list
 @register.filter(name='get_example_list')
 def get_example_list(value):
-    id_list =  Constituent.objects.filter(word_id=value).values_list('example_id').distinct()
+    thai_id_list = SysWordThai.objects.filter(japanese_id=value)
+    id_list = Constituent.objects.filter(word_id__in=thai_id_list).values_list('example_id').distinct()
     return Example.objects.filter(id__in=id_list).order_by('id')
 
 # Custom template tag for get constituent list
