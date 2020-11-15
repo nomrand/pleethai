@@ -1,14 +1,23 @@
 {% load i18n %}
 <div class="modal-body">
     {% get_current_language as LANGUAGE_CODE %}
-    {% for tag in object_list %}
-        {% if LANGUAGE_CODE == "ja" %}
-            <input type="checkbox" id="tag-toggle{{ tag.id }}" class="tag-toggle" data-toggle="toggle" data-on="{{ tag.name }} ({{ tag.num_times }})" data-off="{{ tag.name }} ({{ tag.num_times }})" value="{{ tag.id }}">
-        {% elif LANGUAGE_CODE == "th" %}
-            <input type="checkbox" id="tag-toggle{{ tag.id }}" class="tag-toggle" data-toggle="toggle" data-on="{{ tag.thai }} ({{ tag.num_times }})" data-off="{{ tag.thai }} ({{ tag.num_times }})" value="{{ tag.id }}">
-        {% else %}
-            <input type="checkbox" id="tag-toggle{{ tag.id }}" class="tag-toggle" data-toggle="toggle" data-on="{{ tag.slug }} ({{ tag.num_times }})" data-off="{{ tag.slug }} ({{ tag.num_times }})" value="{{ tag.id }}">
+    {% for tag_cat in object_list %}
+        <section id="tag-section{{ forloop.counter0 }}">
+        {% for tag in tag_cat %}
+            {% if LANGUAGE_CODE == "ja" %}
+                <input type="checkbox" id="tag-toggle{{ tag.id }}" class="tag-toggle" data-toggle="toggle" data-on="{{ tag.name }} ({{ tag.num_times }})" data-off="{{ tag.name }} ({{ tag.num_times }})" value="{{ tag.id }}">
+            {% elif LANGUAGE_CODE == "th" %}
+                <input type="checkbox" id="tag-toggle{{ tag.id }}" class="tag-toggle" data-toggle="toggle" data-on="{{ tag.thai }} ({{ tag.num_times }})" data-off="{{ tag.thai }} ({{ tag.num_times }})" value="{{ tag.id }}">
+            {% else %}
+                <input type="checkbox" id="tag-toggle{{ tag.id }}" class="tag-toggle" data-toggle="toggle" data-on="{{ tag.slug }} ({{ tag.num_times }})" data-off="{{ tag.slug }} ({{ tag.num_times }})" value="{{ tag.id }}">
+            {% endif %}
+        {% endfor %}
+        </section>
+
+        {% if not forloop.last %}
+        <hr>
         {% endif %}
+
         {% empty %}
         <div class="alert alert-danger">No available Tag.</div>
     {% endfor %}

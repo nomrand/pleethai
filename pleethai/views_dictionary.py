@@ -6,6 +6,7 @@ from django.db.models import Q, Count
 from pleethai.models import SysWordJapanese, SysWordThai, Example, Constituent, Tag
 
 PAGENATE_BY = 20
+TAG_CATEGORIZED_BY = 100
 
 class SearchView(generic.ListView):
     model = SysWordJapanese
@@ -103,6 +104,16 @@ class ExampleDetailView(generic.DetailView):
 
 def tags_all(request):
     tags = Tag.objects.all() \
-        .annotate(num_times=Count('pleethai_taggeditem_items')) \
-        .order_by('-num_times')
-    return render(request, 'tags.html', {'object_list': tags})
+        .annotate(num_times=Count('pleethai_taggeditem_items'))
+
+    # ignore the tags that have no item
+    tags = filter(lambda t: t.num_times > 0, tags)
+    # create 2-dimensional list ([tag category][tags])
+    # both tag category & tags are sorted by id
+    tag_cat_map = {}
+    for t in tags:
+        k = int(t.id/TAG_CATEGORIZED_BY)
+        tag_cat_map[k] = tag_cat_map.get(k, [])
+        tag_cat_map[k].append(t)
+    object_list = list(sorted(tag_cat_map.values(), key=lambda tlist: tlist[0].id))
+    return render(request, 'tags.html', {'object_list': object_list})
