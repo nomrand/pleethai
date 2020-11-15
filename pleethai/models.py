@@ -1,7 +1,6 @@
 from django.db import models
 from taggit.models import TagBase, GenericTaggedItemBase
 from taggit.managers import TaggableManager
-from taggit.utils import _parse_tags
 
 class Tag(TagBase):
     thai = models.CharField(max_length=100)
@@ -78,14 +77,11 @@ class SysWordThai (models.Model):
             if item.japanese == word.japanese and item.hiragana == word.hiragana), None)
         if japanese == None:
             return None
-
-        systhai = self( \
+        return self( \
             id = word.id, \
             japanese_id = japanese, \
             word_id = word, \
         )
-        systhai.tags.add(*_parse_tags(word.tags))
-        return systhai
 
 class WordClass (models.Model): 
     id = models.PositiveSmallIntegerField(primary_key=True)
