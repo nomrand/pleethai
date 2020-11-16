@@ -77,7 +77,6 @@ class SysWordConnector (models.Model):
             if item.japanese == word.japanese and item.hiragana == word.hiragana), None)
         if japanese == None:
             return None
-
         return self( \
             id = word.id, \
             japanese_id = japanese, \
