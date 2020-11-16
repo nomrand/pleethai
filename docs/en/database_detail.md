@@ -41,7 +41,7 @@
 | ------------ | ------------- | ------------- | ------------- |
 |id            | INT(10)       | primary key<br>not null              | Constituent ID | 
 |example_id    | INT(10)       | not null<br>foreign key(Example)    | Example ID | 
-|word_id       | INT(10)       | not null<br>foreign key(SysWordThai) | Word ID of the words which is in the Sentence (Example) |
+|word_id       | INT(10)       | not null<br>foreign key(SysWordConnector) | Word ID of the words which is in the Sentence (Example) |
 |order         | INT(2)        | not null    | The order in which the words in the sentence to display | 
 
 
