@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% seo %}
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <style>
+      #content_sec img {
+        background-color: rgba(0, 0, 0, 0.05);
+        padding: 5px;
+        border-radius: 5px;
+      }
+    </style>
+
+    <link rel="shortcut icon" href="../img/favicon.png" type="image/png">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        {% if site.logo %}
+          <img src="{{site.logo | relative_url}}" alt="GaifaaYeepun" /><br>
+        {% endif %}
+
+        <span id="lang_change_sec">
+          <a href="../ja/">日本語</a> | <a href="../en/">English</a>
+          <br>
+        </span>
+
+        <p>{{ site.description | default: site.github.project_tagline }}</p>
+      </header>
+      <section id="content_sec">
+
+      {{ content }}
+
+      </section>
+      <footer>
+        {% if site.github.is_project_page %}
+        <p>This site is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
+        {% endif %}
+      </footer>
+    </div>
+  </body>
+</html>
