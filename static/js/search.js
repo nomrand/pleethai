@@ -147,6 +147,26 @@ $(document).ready(function(){
         $('#detail-modal').modal('hide');
     })
 
+    // Link icons
+    .on('mouseup', 'a.icon_link', function(e) {
+        // load page(href) into iframe 
+        $( "#generic-modal .modal-content iframe" ).attr({"src" : $(this).attr("href")});
+        $( "#generic-modal .modal-content iframe" ).on("load", function() {
+            $("#generic-modal").modal("show");
+            $("#generic-modal").on('shown.bs.modal', function() {
+                // set max height to iframe
+                var all = $("#generic-modal").height();
+                var foot = $("#generic-modal .modal-footer").outerHeight();
+                var margin = parseInt($("#generic-modal .modal-dialog").css("margin-top"));
+                margin += parseInt($("#generic-modal .modal-dialog").css("margin-bottom"));
+                $("#generic-modal .modal-content iframe").height(all - foot - margin - 10);
+            });
+        });
+
+        // modal link icon access
+        sendGAPageView($(this).attr("href"));
+    })
+
     // Language form submit
     .on('submit', 'form[name="trans"]', function() {
         // when submit happened by button
@@ -181,6 +201,11 @@ $(document).ready(function(){
     pagetop.click(function () {
       $('body, html').animate({ scrollTop: 0 }, 500); //0.5秒かけてトップへ戻る
       return false;
+    });
+    // Link icons
+    $('a.icon_link').click(function () {
+        // never jump to href url
+        return false;
     });
 });
 
