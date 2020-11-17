@@ -8,11 +8,13 @@ Install software bellow (For the detailed operations to install, check the websi
     * The path to the Python executable must be set by the environment variable
 * Git
 
+
 ## 2. Clone this project
 
 ```
 git clone https://github.com/jocv-thai/pleethai.git
 ````
+
 
 ## 3. Install required Python packages
 
@@ -21,16 +23,19 @@ cd pleethai
 pip install -r requirements.txt
 ````
 
+
 ## 4. Create database
 ````
 python manage.py migrate
 ````
+
 
 ## 5. Create super user
 ````
 python manage.py createsuperuser
 ````
 * According to the displayed messages, enter username and password.
+
 
 ## 6. Start system
 ````
@@ -44,4 +49,3 @@ To register database, follow the steps in [How to add or edit words/sentences](.
 
 * Refer to [Database](./database.md) for the details of each data to be registered
 * [Sample data](https://drive.google.com/open?id=1AuRX2f7LATfLzXgWiI3-wmAbNUo3tt8o)
-
