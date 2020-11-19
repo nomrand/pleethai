@@ -15,7 +15,8 @@
             {% endif %}
         </div>
         <div>
-            {% for tag in object.tags.all %}
+        {% with object.id|get_tags_by_sysword as tag_list %}
+            {% for tag in tag_list %}
                 {% if LANGUAGE_CODE == "ja" %}
                     <div class="tag-badge badge badge-primary" value="{{ tag.id }}">{{ tag.name }}</div>
                 {% elif LANGUAGE_CODE == "th" %}
@@ -24,23 +25,24 @@
                     <div class="tag-badge badge badge-primary" value="{{ tag.id }}">{{ tag.slug }}</div>
                 {% endif %}
             {% endfor %}
+        {% endwith %}
         </div>
     </div>
     <hr>
     <div><h5>{% trans '定義' %}</h5></div>
-    {% with object.id|get_thai_list as thai_list %}
-        {% for thai in thai_list %}
+    {% with object.id|get_word_cons_by_sysword as word_con_list %}
+        {% for word_con in word_con_list %}
             <div class="card mb-2">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-6"><h6>{{ forloop.counter }}. {{ thai.thai }}</h6></div>
-                        <div class="col-6"><h6>{{ thai.english }}</h6></div>
+                        <div class="col-6"><h6>{{ forloop.counter }}. {{ word_con.word_id.thai }}</h6></div>
+                        <div class="col-6"><h6>{{ word_con.word_id.english }}</h6></div>
                     </div>
                 </div>
             </div>
         {% endfor %}
     {% endwith %}
-    {% with object.id|get_example_list as example_list %}
+    {% with object.id|get_examples_by_sysword as example_list %}
         {% if example_list %}
             <hr>
             <div><h5>{% trans '例文' %}</h5></div>

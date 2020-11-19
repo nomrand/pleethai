@@ -41,7 +41,7 @@
 | ------------ | ------------- | ------------- | ------------- |
 |id            | INT(10)       | primary key<br>not null              | 例文構成ID | 
 |example_id    | INT(10)       | not null<br>foreign key(Example)    | 例文ID | 
-|word_id       | INT(10)       | not null<br>foreign key(SysWordThai) | 例文を構成している単語ID |
+|word_id       | INT(10)       | not null<br>foreign key(SysWordConnector) | 例文を構成している単語ID |
 |order         | INT(2)        | not null    | 例文を構成している単語の表示順 | 
 
 
