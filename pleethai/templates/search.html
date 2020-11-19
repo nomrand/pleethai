@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n static %}
+{% load settings_tag %}
 {% block title %}PleeThai{% endblock %}
 {% block extra_js %}
 <script type="text/javascript" src="{% static 'js/jquery.inview.min.js' %}"></script>
@@ -13,6 +14,7 @@
 {% endblock %}
 
 {% block content %}
+{% get_current_language as LANGUAGE_CODE %}
 <nav class="navbar navbar-expand navbar-dark search">
     <form class="form-inline w-50 flex-fill flex-md-grow-0 ml-auto" action="/">
         <input id="keyword" class="keyword-box" type="search" placeholder="{% trans '検索ワード' %}" aria-label="{% trans '検索ワード' %}">
@@ -73,7 +75,24 @@
         </div>
     </div>
 </div>
+<!-- Floating Icons -->
+<div id="icon_about" class="icon_div" data-toggle="tooltip" title="{% trans 'このサイトについて' %}">
+    <a class="icon_link" href="{% get_map_settings 'ABOUT_URL_MAP' LANGUAGE_CODE %}"></a>
+</div>
 <div id="page_top"><a href="#"></a></div>
+
+<!-- Generic Modal -->
+<div class="modal fade" id="generic-modal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-body"><iframe></iframe></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">{% trans '閉じる' %}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Detail Modal -->
 <div class="modal fade" id="detail-modal">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
