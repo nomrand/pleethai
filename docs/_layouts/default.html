@@ -12,6 +12,19 @@
     <![endif]-->
 
     <style>
+      #toc, #toc * {
+        all: revert;
+        text-decoration: none;
+      }
+      #toc ul {
+        padding-left: 1em;
+      }
+      #toc li {
+        padding-top: 1em;
+      }
+      #toc a, #toc a:visited {
+        color: #676767;
+      }
       #content_sec img {
         background-color: rgba(0, 0, 0, 0.05);
         padding: 5px;
@@ -33,7 +46,10 @@
           <br>
         </span>
 
-        <p>{{ site.description | default: site.github.project_tagline }}</p>
+        <section id="toc">
+          {% include toc.html html=content %}
+        </section>
+        
       </header>
       <section id="content_sec">
 
