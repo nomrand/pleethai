@@ -18,4 +18,4 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         script_stop: true
         script: |
-          cd ${{ secrets.DEPLOY_PATH }}&&git pull origin master&&iisreset /restart
+          cd ${{ secrets.DEPLOY_PATH }}&&webserver_restart.bat
