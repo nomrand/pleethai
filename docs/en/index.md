@@ -1,5 +1,6 @@
 ---
 layout: default
+title: About GaifaaYeepun
 ---
 
 GaifaaYeepun is a dictionary website for Japanese, Thai and English words/sentences.

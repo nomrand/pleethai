@@ -1,5 +1,6 @@
 ---
 layout: default
+title: About GaifaaYeepun
 ---
 
 GaifaaYeepunは日本語、タイ語、英語の単語、例文辞書サイトです。
