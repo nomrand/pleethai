@@ -25,6 +25,22 @@
       #toc a, #toc a:visited {
         color: #676767;
       }
+
+      @media print, screen and (max-width: 960px) {
+        body {
+          padding-top: 5px;
+          padding-bottom: 5px;
+        }
+        footer, #toc {
+          display: none;
+        }
+        #content_sec {
+          border-bottom: none;
+          margin-bottom: 0px;
+          padding-bottom: 0px;
+        }
+      }
+
       #content_sec img {
         background-color: rgba(0, 0, 0, 0.05);
         padding: 5px;
