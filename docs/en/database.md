@@ -1,4 +1,6 @@
-## Database Structure
+# Database Overview
+## Database Tables
+
 | Table Name   | Contents      |
 | ------------ | ------------- |
 | Word         | Manage words (One record means one combination of Japanese-Thai word. If one Japanese word has multiple Thai meanings, it uses 2 or more records) |
