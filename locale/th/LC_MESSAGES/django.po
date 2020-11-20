@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-13 12:23+0700\n"
+"POT-Creation-Date: 2020-11-17 12:38+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,33 +56,25 @@ msgstr "ex)'พรุ่งนี้' ไม่ได้ลงทะเบีย
 msgid "メールアドレスが確認用と一致しません。"
 msgstr "ไม่ตรงกันอีเมลสำหรับการยืนยัน"
 
-#: .\pleethai\templates\base.html:45 .\pleethai\templates\base.html:61
+#: .\pleethai\templates\base.html:68 .\pleethai\templates\base.html:88
 msgid "単語・例文"
 msgstr "คำและประโยค"
 
-#: .\pleethai\templates\base.html:48 .\pleethai\templates\base.html:62
-#: .\pleethai\templates\request.html:5 .\pleethai\templates\request.html:11
+#: .\pleethai\templates\base.html:73 .\pleethai\templates\base.html:89
+#: .\pleethai\templates\request.html:5 .\pleethai\templates\request.html:14
 msgid "リクエスト"
 msgstr "ขอร้อง"
-
-#: .\pleethai\templates\base.html:67 .\pleethai\templates\search.html:45
-msgid "タイ語"
-msgstr "ภาษาไทย"
-
-#: .\pleethai\templates\base.html:73 .\pleethai\templates\search.html:39
-msgid "日本語"
-msgstr "ภาษาญี่ปุ่น"
 
 #: .\pleethai\templates\example_detail.html:26
 msgid "構成語"
 msgstr "คำศัพท์ประกอบ"
 
 #: .\pleethai\templates\example_detail.html:43
-#: .\pleethai\templates\tags.html:18 .\pleethai\templates\word_detail.html:60
+#: .\pleethai\templates\tags.html:27 .\pleethai\templates\word_detail.html:62
 msgid "閉じる"
 msgstr "ปิด"
 
-#: .\pleethai\templates\request.html:14
+#: .\pleethai\templates\request.html:17
 msgid "確認"
 msgstr "ยืนยัน"
 
@@ -100,42 +92,55 @@ msgstr "ขอบคุณสำหรับคำขอของคุณ ก�
 msgid "リクエスト内容確認"
 msgstr "ขอการยืนยันเนื้อหา"
 
-#: .\pleethai\templates\request_confirm.html:24
+#: .\pleethai\templates\request_confirm.html:26
 msgid "この内容で管理者にリクエストメールを送信します。"
 msgstr "ส่งอีเมล์ขอให้ผู้ดูแลระบบ"
 
-#: .\pleethai\templates\request_confirm.html:30
+#: .\pleethai\templates\request_confirm.html:32
 msgid "送信"
 msgstr "ส่ง"
 
-#: .\pleethai\templates\request_confirm.html:37
+#: .\pleethai\templates\request_confirm.html:39
 msgid "修正"
 msgstr "แก้ไข่"
 
-#: .\pleethai\templates\search.html:19
+#: .\pleethai\templates\search.html:21
 msgid "検索ワード"
 msgstr "คำหา"
 
-#: .\pleethai\templates\search.html:21 .\pleethai\templates\search.html:42
+#: .\pleethai\templates\search.html:23 .\pleethai\templates\search.html:44
+#: .\pleethai\templates\search.html:65
 msgid "タグ"
 msgstr "แท็ก"
 
-#: .\pleethai\templates\search.html:22 .\pleethai\templates\tags.html:17
+#: .\pleethai\templates\search.html:24 .\pleethai\templates\tags.html:26
 msgid "クリア"
 msgstr "ล้าง"
 
-#: .\pleethai\templates\search.html:27
+#: .\pleethai\templates\search.html:29
 msgid "単語"
 msgstr "คำศัพท์"
 
-#: .\pleethai\templates\search.html:30 .\pleethai\templates\word_detail.html:46
+#: .\pleethai\templates\search.html:32 .\pleethai\templates\word_detail.html:48
 msgid "例文"
 msgstr "ตัวอย่างประโยค"
 
-#: .\pleethai\templates\search.html:45
+#: .\pleethai\templates\search.html:41 .\pleethai\templates\search.html:62
+msgid "日本語"
+msgstr "ภาษาญี่ปุ่น"
+
+#: .\pleethai\templates\search.html:47 .\pleethai\templates\search.html:68
+msgid "タイ語"
+msgstr "ภาษาไทย"
+
+#: .\pleethai\templates\search.html:47
 msgid "英語"
 msgstr "ภาษาอังกฤษ"
 
-#: .\pleethai\templates\word_detail.html:30
+#: .\pleethai\templates\word_detail.html:32
 msgid "定義"
 msgstr "ความหมาย"
+
+#: .\pleethai\templates\search.html:80
+msgid "このサイトについて"
+msgstr "เกี่ยวกับเว็บไซต์นี้"
