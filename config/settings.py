@@ -171,6 +171,5 @@ REQUEST_MAIL_SEND_INFO = {
 # (no exist = development setting)
 try:
     from .production_settings import *
-except ImportError as e:
-    print('*** THE SYSTEM WORKS WITH DEVELOPMENT SETTING(' + str(e) + ')')
+except ImportError:
     pass
