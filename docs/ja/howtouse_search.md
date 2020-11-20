@@ -1,14 +1,15 @@
-# 画面詳細
-## 単語・例文検索画面
+# 単語・例文検索画面
 日本語、タイ語、英語のいずれかを入力することで、単語あるいは例文を検索出来る。
 検索は部分一致で行われるため、検索ワードの一部を入力すると、該当する全ての単語・例文が表示される。
 
 - 例) 検索ワード「法」 -> 検索結果「方法」、「法律」、「フレミングの法則」、…など
 
-### 単語検索画面
+
+## 単語検索画面
 ![単語検索画面](https://docs.google.com/drawings/d/e/2PACX-1vQydF_MCgQ78htf5T37wAEiFy2SbCFMUPhOO8MVbGP6KT5wKIszzVkKa1ZHBmTs2BzQsQO2WrbxJBhw/pub?w=1582&h=690)
 
-### 例文検索画面
+
+## 例文検索画面
 ![例文検索画面](https://docs.google.com/drawings/d/e/2PACX-1vRj6dX48JBRD-FbXnAst7gewJs2pIYVfDq5A44L6J3tShoKFI4wIPaUgSKgbpoxunPD7LJaHsi9r0qU/pub?w=1582&h=690)
 
 
@@ -31,6 +32,7 @@
 
    - クリアボタン
      - 検索ワード、および選択中のタグをクリアする。
+
 5. 単語 / 例文検索画面切り替えタブ
    - デフォルトの検索対象は単語検索画面。
    - 「例文」をクリックした場合、例文検索画面を表示する。
@@ -61,7 +63,7 @@
 
 ---
 
-### 単語詳細画面
+## 単語詳細画面
 ![単語詳細画面](https://docs.google.com/drawings/d/e/2PACX-1vQxK-b3n0Gbdo5e7uIXLGmCN3dkuD_80JCxCL0JuZUrPl0M0ciZ37YHmgWMyz0mDaM-g3g96VG_ZFTX/pub?w=1582&h=690)
 
 1. 対応タグ
@@ -70,7 +72,7 @@
    - 例文をクリックした場合、クリックした例文の例文詳細画面を表示する。
 
 
-### 例文詳細画面
+## 例文詳細画面
 ![例文詳細画面](https://docs.google.com/drawings/d/e/2PACX-1vTA7CrzOykfQzC9DvwLDZDPGp2U_HLB0hvGOxKxNZB-E6FLkO_G4tA1Jem0E9mL4KasamtWB0b88r8_/pub?w=1582&h=690)
 
 1. 対応タグ

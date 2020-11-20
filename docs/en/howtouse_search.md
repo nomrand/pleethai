@@ -1,14 +1,15 @@
-# The Details of Page
-## Search Page
+# Search Page
 You can search for Japanse, Thai, and English words/sentences.
 The search uses a partial match. All corresponding words will show up while entering a part of the search word and sentence.
 
 - For example, when the search word is "law", the results will be "lawyer", "lawn", "Flemming's law", etc.
 
-### Word Search Page
+
+## Word Search Page
 ![Word Search Page](https://docs.google.com/drawings/d/e/2PACX-1vQydF_MCgQ78htf5T37wAEiFy2SbCFMUPhOO8MVbGP6KT5wKIszzVkKa1ZHBmTs2BzQsQO2WrbxJBhw/pub?w=1582&h=690)
 
-### Sentence Search Page
+
+## Sentence Search Page
 ![Sentence Search Page](https://docs.google.com/drawings/d/e/2PACX-1vRj6dX48JBRD-FbXnAst7gewJs2pIYVfDq5A44L6J3tShoKFI4wIPaUgSKgbpoxunPD7LJaHsi9r0qU/pub?w=1582&h=690)
 
 
@@ -62,7 +63,7 @@ The search uses a partial match. All corresponding words will show up while ente
 
 ---
 
-### Word Detail Page
+## Word Detail Page
 ![Word Detail Page](https://docs.google.com/drawings/d/e/2PACX-1vQxK-b3n0Gbdo5e7uIXLGmCN3dkuD_80JCxCL0JuZUrPl0M0ciZ37YHmgWMyz0mDaM-g3g96VG_ZFTX/pub?w=1582&h=690)
 
 1. Tag
@@ -71,7 +72,7 @@ The search uses a partial match. All corresponding words will show up while ente
    - Choose one of displayed sentences to show the "Sentence Detail Page"
 
 
-### Sentence Detail Page
+## Sentence Detail Page
 ![Sentence Detail Page](https://docs.google.com/drawings/d/e/2PACX-1vTA7CrzOykfQzC9DvwLDZDPGp2U_HLB0hvGOxKxNZB-E6FLkO_G4tA1Jem0E9mL4KasamtWB0b88r8_/pub?w=1582&h=690)
 
 1. Tag

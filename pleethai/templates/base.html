@@ -44,6 +44,7 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 
     <!-- Extra CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% block extra_css %}{% endblock %}
 
@@ -52,6 +53,7 @@
 </head>
 
 <body>
+    {% get_current_language as LANGUAGE_CODE %}
     <div id="content" class="container">
         <nav class="navbar navbar-expand-md bg-faded align-items-end">
             <a href="{% url 'search' %}" class="title navbar-brand"><img src="{% static 'img/title.png' %}" class="img-fluid" alt="GaifaaYeepun"></a>
@@ -85,6 +87,7 @@
         </nav>
         <div class="collapse text-right" id="nav-items">
                 <ul class="list-group">
+                    <a class="list-group-item list-group-item-action" target="gaifaa_new_window" href="{% get_map_settings 'ABOUT_URL_MAP' LANGUAGE_CODE %}" role="button"><span class="btn-text">{% trans 'このサイトについて' %}</span></a>
                     <a class="list-group-item list-group-item-action" href="{% url 'search' %}" role="button"><span class="btn-text">{% trans '単語・例文' %}</span></a>
                     <a class="list-group-item list-group-item-action" href="{% url 'mail_input' %}" role="button"><span class="btn-text">{% trans 'リクエスト' %}</span></a>
                     <form id="menu-form-th" class="list-group-item list-group-item-action" name="trans"  action="{% url 'set_language' %}" method="post">
@@ -101,7 +104,13 @@
                     </form>
                 </ul>
 
-            </div>
+        </div>
+
+        <!-- Floating Icons -->
+        <div id="icon_about" class="icon_div">
+            <a target="gaifaa_new_window" href="{% get_map_settings 'ABOUT_URL_MAP' LANGUAGE_CODE %}">{% trans 'このサイトについて' %}</a>
+        </div>
+        
         {% block content %}
         {{ content }}
         {% endblock %}
@@ -117,6 +126,7 @@
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     
     <!-- Optional JavaScript -->
+    <script type="text/javascript" src="{% static 'js/base.js' %}"></script>
     {% block extra_js %}{% endblock %}
 </body>
 </html>
