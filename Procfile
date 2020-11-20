@@ -1,2 +1,2 @@
-release: ./heroku_release.sh
+release: bash ./heroku_release.sh
 web: gunicorn config.wsgi
