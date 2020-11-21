@@ -54,6 +54,7 @@
 
 <body>
     {% get_current_language as LANGUAGE_CODE %}
+    {% get_map_settings 'ABOUT_URL_MAP' LANGUAGE_CODE as ABOUT_PAGE_URL %}
     <div id="content" class="container">
         <nav class="navbar navbar-expand-md bg-faded align-items-end">
             <a href="{% url 'search' %}" class="title navbar-brand"><img src="{% static 'img/title.png' %}" class="img-fluid" alt="GaifaaYeepun"></a>
@@ -87,7 +88,9 @@
         </nav>
         <div class="collapse text-right" id="nav-items">
                 <ul class="list-group">
-                    <a class="list-group-item list-group-item-action" target="gaifaa_new_window" href="{% get_map_settings 'ABOUT_URL_MAP' LANGUAGE_CODE %}" role="button"><span class="btn-text">{% trans 'このサイトについて' %}</span></a>
+                    {% if ABOUT_PAGE_URL %}
+                    <a class="list-group-item list-group-item-action" target="gaifaa_new_window" href="{{ ABOUT_PAGE_URL }}" role="button"><span class="btn-text">{% trans 'このサイトについて' %}</span></a>
+                    {% endif %}
                     <a class="list-group-item list-group-item-action" href="{% url 'search' %}" role="button"><span class="btn-text">{% trans '単語・例文' %}</span></a>
                     <a class="list-group-item list-group-item-action" href="{% url 'mail_input' %}" role="button"><span class="btn-text">{% trans 'リクエスト' %}</span></a>
                     <form id="menu-form-th" class="list-group-item list-group-item-action" name="trans"  action="{% url 'set_language' %}" method="post">
@@ -107,9 +110,11 @@
         </div>
 
         <!-- Floating Icons -->
+        {% if ABOUT_PAGE_URL %}
         <div id="icon_about" class="icon_div">
-            <a target="gaifaa_new_window" href="{% get_map_settings 'ABOUT_URL_MAP' LANGUAGE_CODE %}">{% trans 'このサイトについて' %}</a>
+            <a target="gaifaa_new_window" href="{{ ABOUT_PAGE_URL }}">{% trans 'このサイトについて' %}</a>
         </div>
+        {% endif %}
         
         {% block content %}
         {{ content }}
