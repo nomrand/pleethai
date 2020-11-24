@@ -40,7 +40,9 @@ $(document).ready(function() {
     // first set the voices
     speechSynthesis.onvoiceschanged();
 
-    var all_target_class = Object.keys(speechVoiceAvailbale).map(k => '.speech-button-' + k).join(', ');
+    var all_target_class = Object.keys(speechVoiceAvailbale).map(function(k){
+        return '.speech-button-' + k;
+    }).join(', ');
     $(document).on('click', all_target_class, function() {
         var self = this;
         var voice;
