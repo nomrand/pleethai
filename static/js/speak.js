@@ -27,8 +27,11 @@ function setSpeakableOrNot() {
         // set/unset speakable indicator
         if(v) {
             target.find('.speech-target').addClass('speakable');
+            // this is for click event bug of iOS
+            target.css({'cursor': 'pointer'});
         } else {
             target.find('.speech-target').removeClass('speakable');
+            target.css({'cursor': 'inherit'});
         }
     });
 }
