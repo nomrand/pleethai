@@ -13,14 +13,18 @@
 
     <style>
       #toc, #toc * {
-        all: revert;
+        /* revert the setting of style.css */
+        background: inherit;
+        border: inherit;
+        width: inherit;
+        height: inherit;
+        text-align: left;
+        list-style: inherit;
+        float: none;
         text-decoration: none;
       }
-      #toc ul {
-        padding-left: 1em;
-      }
-      #toc li {
-        padding-top: 1em;
+      #toc ul, #toc li {
+        margin: 1em;
       }
       #toc a, #toc a:visited {
         color: #676767;
