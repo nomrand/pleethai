@@ -20,7 +20,7 @@ words/sentences to the system manager from the "Request Page".
 
   - If you see a speaker icon<i class="fas fa-volume-up"></i> after a word or sentence, you can click on the icon to listen to its pronunciation. (Only if your browser supports Text-to-Speech feature of that language)
     
-    In the case of ___Windows 10 + Microsoft Edge___ browser, you may be able to use this feature by [Installing the language](https://support.microsoft.com/en-us/office/download-voices-for-immersive-reader-read-mode-and-read-aloud-4c83a8d8-7486-42f7-8e46-2b0fdf753130?wt.mc_id=edgeui-readaloud-voices&ui=en-us&rs=en-us&ad=us).  
+    In the case of ___Windows 10 + Microsoft Edge browser___, you may be able to use this feature by [Installing the language](https://support.microsoft.com/en-us/office/download-voices-for-immersive-reader-read-mode-and-read-aloud-4c83a8d8-7486-42f7-8e46-2b0fdf753130?wt.mc_id=edgeui-readaloud-voices&ui=en-us&rs=en-us&ad=us).  
 
 - [Request Page](./howtouse_request.md)  
 [<img src ="https://user-images.githubusercontent.com/42882840/100090636-d0eb8480-2e96-11eb-823e-e0059da94e58.gif" alt="request demo" width="320">](./howtouse_request.md)
