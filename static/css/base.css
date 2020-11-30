@@ -64,14 +64,20 @@ input.flag {
     width: 250px;
     height: 50px;
     position: fixed;
+    z-index: 1030;
     right: -210px;
     top: 30px; /* must be changed by each icon */
-    background: #097f9de6;
+    background: rgba(9, 127, 157, 0.9);
     border-radius: 25px;
     overflow: hidden;
-    transition: right 1.5s;
+    transition: right 0.5s;
+    /* this is for click event bug of iOS */
+    cursor: pointer;
 }
-.icon_div:hover {
+.icon_div.openning {
+    right: -30px;
+}
+.icon_div.opened {
     right: -30px;
 }
 .icon_div a {
