@@ -4,5 +4,14 @@
     content: '\f028';
     width: 25px;
     height: 25px;
+    line-height: 25px;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: visible;
     margin-left: 5px;
+    
+    transition: font-size 0.5s;
+}
+.speakable.speaking::after {
+    font-size: 200%;
 }
