@@ -1,17 +1,17 @@
-var speechVoiceAvailbale = {
+var SPEECH_VOICE_AVAILBALE = {
     "ja" : undefined,
     "th" : undefined,
     "en" : undefined,
-}
+};
 
 speechSynthesis.onvoiceschanged = function() {
     // loop for each language (jp, th, en)
-    $.each(speechVoiceAvailbale, function(targetLang, __v) {
+    $.each(SPEECH_VOICE_AVAILBALE, function(targetLang, __v) {
         // loop for browser-available-voices
         $.each(speechSynthesis.getVoices(), function(__index, voice) {
             if(voice.lang.startsWith(targetLang)){
                 // set available voice for target language
-                speechVoiceAvailbale[targetLang] = voice;
+                SPEECH_VOICE_AVAILBALE[targetLang] = voice;
                 return false;
             }
         });
@@ -19,10 +19,10 @@ speechSynthesis.onvoiceschanged = function() {
 
     // set speakbale indicator
     setSpeakableOrNot();
-}
+};
 
 function setSpeakableOrNot() {
-    $.each(speechVoiceAvailbale, function(lang, v) {
+    $.each(SPEECH_VOICE_AVAILBALE, function(lang, v) {
         var target = $('.speech-button-' + lang);
         // set/unset speakable indicator
         if(v) {
@@ -40,13 +40,18 @@ $(document).ready(function() {
     // first set the voices
     speechSynthesis.onvoiceschanged();
 
-    var all_target_class = Object.keys(speechVoiceAvailbale).map(function(k){
+    var all_target_class = Object.keys(SPEECH_VOICE_AVAILBALE).map(function(k){
         return '.speech-button-' + k;
     }).join(', ');
     $(document).on('click', all_target_class, function() {
+        // if voice is already speaking, do nothing
+        if(speechSynthesis.pending || speechSynthesis.speaking){
+            return;
+        }
+
         var self = this;
         var voice;
-        $.each(speechVoiceAvailbale, function(lang, v) {
+        $.each(SPEECH_VOICE_AVAILBALE, function(lang, v) {
             if($(self).is('.speech-button-' + lang)){
                 voice = v;
                 return false;
@@ -69,9 +74,12 @@ $(document).ready(function() {
         msg.voice = voice;
         msg.text = text;
         msg.rate = 0.8; // speed (min 0 - max 10)
-        
-        // speak (if already speaking, cancel it)
-        speechSynthesis.cancel();
+
+        // speak
+        $(msg).on('end error', function() {
+            base.removeClass('speaking');
+        });
+        base.addClass('speaking');
         speechSynthesis.speak(msg);
     });
 });
