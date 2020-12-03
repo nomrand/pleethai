@@ -2,7 +2,7 @@
 ถ้าผู้ใช้อยากเพิ่มเติมคำศัพท์และประโยค หรือพบข้อผิดในข้อมูล สามารถส่งขอร้องไปยังผู้จัดการระบบจากหน้านี้
 
 ## กรอกคำขอร้อง
-![กรอกคำขอร้อง](https://docs.google.com/drawings/d/e/2PACX-1vTAxt-apr9CZhcl-JASt7QPQ5hSVFdIDNJL2FcVIyOnhquF8d4Rg5GI-kvsTs52SDCLtqve9LebnmR9/pub?w=1540&h=692)
+![กรอกคำขอร้อง](https://docs.google.com/drawings/d/e/2PACX-1vTAxt-apr9CZhcl-JASt7QPQ5hSVFdIDNJL2FcVIyOnhquF8d4Rg5GI-kvsTs52SDCLtqve9LebnmR9/pub?w=1228&h=650)
 
 1. เปลี่ยนหน้า "หน้าค้นหา" / "หน้าขอร้อง"
 2. เปลี่ยนภาษาในเว็บไซต์ "ภาษาไทย" / "ภาษาญี่ปุ่น"
@@ -18,7 +18,7 @@
 
 
 ## ยืนยันคำขอร้อง
-![ยืนยันคำขอร้อง](https://docs.google.com/drawings/d/e/2PACX-1vR3pEBioPS7nn2l5GwHP3UW1IzlIxOV87IwCLaIRkM-NJiMovYQMBgAP2ML05SKcjmEL7zY0bfwDVK9/pub?w=1540&h=692)
+![ยืนยันคำขอร้อง](https://docs.google.com/drawings/d/e/2PACX-1vR3pEBioPS7nn2l5GwHP3UW1IzlIxOV87IwCLaIRkM-NJiMovYQMBgAP2ML05SKcjmEL7zY0bfwDVK9/pub?w=1233&h=423)
 
 - กดปุ่ม "ส่ง" ก็จะสามารถส่งคำขอร้องไปยังผู้จัดการระบบ
 
