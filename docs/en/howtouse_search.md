@@ -6,14 +6,16 @@ The search uses a partial match. All corresponding words will show up while ente
 
 
 ## Word Search Page
-![Word Search Page](https://docs.google.com/drawings/d/e/2PACX-1vQydF_MCgQ78htf5T37wAEiFy2SbCFMUPhOO8MVbGP6KT5wKIszzVkKa1ZHBmTs2BzQsQO2WrbxJBhw/pub?w=1582&h=690)
+![Word Search Page](https://docs.google.com/drawings/d/e/2PACX-1vQydF_MCgQ78htf5T37wAEiFy2SbCFMUPhOO8MVbGP6KT5wKIszzVkKa1ZHBmTs2BzQsQO2WrbxJBhw/pub?w=1554&h=566)
 
 
 ## Sentence Search Page
-![Sentence Search Page](https://docs.google.com/drawings/d/e/2PACX-1vRj6dX48JBRD-FbXnAst7gewJs2pIYVfDq5A44L6J3tShoKFI4wIPaUgSKgbpoxunPD7LJaHsi9r0qU/pub?w=1582&h=690)
+![Sentence Search Page](https://docs.google.com/drawings/d/e/2PACX-1vR_paPb-Jfkg1m_M30SjWZux42SsjwjzsjsdZW6oJJS67OR9n6ZFT8F3ERszE850Mlohusudw2XSrBr/pub?w=1554&h=566)
 
 
-1. Switch "Search Page" / "Request Page"
+1. Switch "Search Page" / "Request Page"  
+   ![เมนูหน้าค้นหา](https://docs.google.com/drawings/d/e/2PACX-1vRKGcdVrCcQVVgKELT-PAVUdEqA7ohW_AKK2I4aRQNqMCWLFxzy4la_88H8NQzOOIV2WOyfNnT-AS0W/pub?w=643&h=214)
+
    - The default is "Search Page"
    - When you click on the "リクエスト" or "ขอร้อง" link, ["Request Page"](./howtouse_request.md) will be shown
 2. Switch display language Thai / Japanese
@@ -37,14 +39,16 @@ The search uses a partial match. All corresponding words will show up while ente
    - The default is "Word Search Page"
    - When you click on the "例文" or "ตัวอย่างประโยค" link, "Sentence Search Page" will be shown
 
-6. Word
+6. Word  
+   ![บรรทัดคำศัพท์](https://docs.google.com/drawings/d/e/2PACX-1vR7jqH6uKcd3PlpktkZCNvBFmPhV_MmMNv9LASSbSjuouY9LesDNEDpx1f6oCyh2jbI--aqcq2cnt6o/pub?w=475&h=167)
 
    (a) Japanese,  (b) tag,  (c) Thai, English
    - Information of the word (Japanese, Thai, English, Word class, tags)
    - Choose one of displayed tags to search with the tag
    - Choose non-tag area to show "Word Detail Page" of the selected word
 
-7. Sentence
+7. Sentence  
+   ![บรรทัดประโยค](https://docs.google.com/drawings/d/e/2PACX-1vQUwD7VgMgkOvCwkPSKjQVN-38xdbEdmyxxfzC1CSV3qB3nNI0saXZTJOGg12qyDErJNJ6ju5NgbnW8/pub?w=472&h=121)
 
    (a) Japanese,  (b) tag,  (c) Thai
    - Information of the sentence (Japanese, Thai, tags)
@@ -59,12 +63,12 @@ The search uses a partial match. All corresponding words will show up while ente
 
   Click on the button at the top right to open the menu.
 
-  ![In the case of small display](https://docs.google.com/drawings/d/e/2PACX-1vTLIQYxWN24bdBahvhQ16ZkPupmZCkAsugwV2A5apFN8-fpGgi4j2-UYhOQO4-N-pm-bDN3LWxfpHJr/pub?w=1640&h=736)
+  ![In the case of small display](https://docs.google.com/drawings/d/e/2PACX-1vQl5fiOJCyJSnNDYVkrf_gw-5B85A6acjjxHwMVULQ-uerp1bZoNeuL5cEZerNMAjkyRy30Hln49k7Y/pub?w=553&h=347)
 
 ---
 
 ## Word Detail Page
-![Word Detail Page](https://docs.google.com/drawings/d/e/2PACX-1vQxK-b3n0Gbdo5e7uIXLGmCN3dkuD_80JCxCL0JuZUrPl0M0ciZ37YHmgWMyz0mDaM-g3g96VG_ZFTX/pub?w=1582&h=690)
+![Word Detail Page](https://docs.google.com/drawings/d/e/2PACX-1vQwPRKElK4X0Aql2PVZrrZAfZDhPYx9n3uCH8GYlDx39oW81pmvdTD3hwIXyEHYNmUvIf9R6YH08wLo/pub?w=779&h=568)
 
 1. Tag
    - Choose one of displayed tags to search with the tag 
@@ -73,7 +77,7 @@ The search uses a partial match. All corresponding words will show up while ente
 
 
 ## Sentence Detail Page
-![Sentence Detail Page](https://docs.google.com/drawings/d/e/2PACX-1vTA7CrzOykfQzC9DvwLDZDPGp2U_HLB0hvGOxKxNZB-E6FLkO_G4tA1Jem0E9mL4KasamtWB0b88r8_/pub?w=1582&h=690)
+![Sentence Detail Page](https://docs.google.com/drawings/d/e/2PACX-1vTKR0pHDTtyeJimO0njgit4y3Q_w7HASyEjZwab_H3XsUU10OZWjuuQI7nzueYiMq53318KiKUdG4XP/pub?w=779&h=568)
 
 1. Tag
    - Choose one of displayed tags to search with the tag
