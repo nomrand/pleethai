@@ -102,7 +102,7 @@ msgstr "ส่ง"
 
 #: .\pleethai\templates\request_confirm.html:39
 msgid "修正"
-msgstr "แก้ไข่"
+msgstr "แก้ไข"
 
 #: .\pleethai\templates\search.html:21
 msgid "検索ワード"
