@@ -13,13 +13,14 @@ The search uses a partial match. All corresponding words will show up while ente
 ![Sentence Search Page](https://docs.google.com/drawings/d/e/2PACX-1vR_paPb-Jfkg1m_M30SjWZux42SsjwjzsjsdZW6oJJS67OR9n6ZFT8F3ERszE850Mlohusudw2XSrBr/pub?w=1554&h=566)
 
 
-1. Switch "Search Page" / "Request Page"  
-   ![เมนูหน้าค้นหา](https://docs.google.com/drawings/d/e/2PACX-1vRKGcdVrCcQVVgKELT-PAVUdEqA7ohW_AKK2I4aRQNqMCWLFxzy4la_88H8NQzOOIV2WOyfNnT-AS0W/pub?w=643&h=214)
+## Description of each part in the page
+![เมนูหน้าค้นหา](https://docs.google.com/drawings/d/e/2PACX-1vRKGcdVrCcQVVgKELT-PAVUdEqA7ohW_AKK2I4aRQNqMCWLFxzy4la_88H8NQzOOIV2WOyfNnT-AS0W/pub?w=643&h=214)
 
+1. Switch "Search Page" / "Request Page"
    - The default is "Search Page"
-   - When you click on the "リクエスト" or "ขอร้อง" link, ["Request Page"](./howtouse_request.md) will be shown
+   - When you click on the "ขอร้อง" or "リクエスト" link, ["Request Page"](./howtouse_request.md) will be shown
 2. Switch display language Thai / Japanese
-   - Switches the language used for labels on each page. The default language is Thai
+   - Switches the language used for labels on each page
      (This only affects the label, not the page structure)
    - When you click on the Japanese flag, display language will change to Japanese
 
@@ -37,7 +38,7 @@ The search uses a partial match. All corresponding words will show up while ente
 
 5. Switch "Word Search Page" / "Sentence Search Page" Tab
    - The default is "Word Search Page"
-   - When you click on the "例文" or "ตัวอย่างประโยค" link, "Sentence Search Page" will be shown
+   - When you click on the "ตัวอย่างประโยค" or "例文" link, "Sentence Search Page" will be shown
 
 6. Word  
    ![บรรทัดคำศัพท์](https://docs.google.com/drawings/d/e/2PACX-1vR7jqH6uKcd3PlpktkZCNvBFmPhV_MmMNv9LASSbSjuouY9LesDNEDpx1f6oCyh2jbI--aqcq2cnt6o/pub?w=475&h=167)

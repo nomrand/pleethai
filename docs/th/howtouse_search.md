@@ -16,9 +16,10 @@
 ![ค้นหาประโยค](https://docs.google.com/drawings/d/e/2PACX-1vR_paPb-Jfkg1m_M30SjWZux42SsjwjzsjsdZW6oJJS67OR9n6ZFT8F3ERszE850Mlohusudw2XSrBr/pub?w=1554&h=566)
 
 
-1. เปลี่ยนหน้า "หน้าค้นหา" / "หน้าขอร้อง"  
-   ![เมนูหน้าค้นหา](https://docs.google.com/drawings/d/e/2PACX-1vRKGcdVrCcQVVgKELT-PAVUdEqA7ohW_AKK2I4aRQNqMCWLFxzy4la_88H8NQzOOIV2WOyfNnT-AS0W/pub?w=643&h=214)
+## คำอธิบายของแต่ละส่วนในหน้า
+![เมนูหน้าค้นหา](https://docs.google.com/drawings/d/e/2PACX-1vRKGcdVrCcQVVgKELT-PAVUdEqA7ohW_AKK2I4aRQNqMCWLFxzy4la_88H8NQzOOIV2WOyfNnT-AS0W/pub?w=643&h=214)
 
+1. เปลี่ยนหน้า "หน้าค้นหา" / "หน้าขอร้อง"
    - หน้าเริ่มต้นเป็น "หน้าค้นหา"
    - ถ้าคลิกลิงค์ "ขอร้อง" หรือ "リクエスト" ก็สามารถเปลี่ยนหน้าเป็น ["หน้าขอร้อง"](./howtouse_request.md) ได้
 

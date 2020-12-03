@@ -13,13 +13,14 @@
 ![例文検索画面](https://docs.google.com/drawings/d/e/2PACX-1vR_paPb-Jfkg1m_M30SjWZux42SsjwjzsjsdZW6oJJS67OR9n6ZFT8F3ERszE850Mlohusudw2XSrBr/pub?w=1554&h=566)
 
 
-1. 単語・例文検索画面 / リクエスト画面切り替え  
-   ![単語検索画面メニュー](https://docs.google.com/drawings/d/e/2PACX-1vRKGcdVrCcQVVgKELT-PAVUdEqA7ohW_AKK2I4aRQNqMCWLFxzy4la_88H8NQzOOIV2WOyfNnT-AS0W/pub?w=643&h=214)
+## 画面の各部分説明
+![単語検索画面メニュー](https://docs.google.com/drawings/d/e/2PACX-1vRKGcdVrCcQVVgKELT-PAVUdEqA7ohW_AKK2I4aRQNqMCWLFxzy4la_88H8NQzOOIV2WOyfNnT-AS0W/pub?w=643&h=214)
 
+1. 単語・例文検索画面 / リクエスト画面切り替え
    - デフォルトは単語・例文検索画面。
-   - 「リクエスト」をクリックした場合、[リクエスト画面](./howtouse_request.md)を表示する。
+   - 「ขอร้อง」または「リクエスト」をクリックした場合、[リクエスト画面](./howtouse_request.md)を表示する。
 2. タイ語 / 日本語表示言語切り替え
-   - 画面内のラベル部分に使用する言語を切り替える。デフォルトはタイ語表示。
+   - 画面内のラベル部分に使用する言語を切り替える。
      (ラベル部分を切り替えるだけであり、ページの構成には影響しない)
    - 日本国旗をクリックした場合、表示言語を日本語に切り替える。
      
@@ -37,7 +38,7 @@
 
 5. 単語 / 例文検索画面切り替えタブ
    - デフォルトの検索対象は単語検索画面。
-   - 「例文」をクリックした場合、例文検索画面を表示する。
+   - 「ตัวอย่างประโยค」または「例文」をクリックした場合、例文検索画面を表示する。
 
 6. 単語  
    ![単語検索画面行](https://docs.google.com/drawings/d/e/2PACX-1vR7jqH6uKcd3PlpktkZCNvBFmPhV_MmMNv9LASSbSjuouY9LesDNEDpx1f6oCyh2jbI--aqcq2cnt6o/pub?w=475&h=167)
