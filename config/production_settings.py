@@ -6,9 +6,9 @@ SECRET_KEY = 'yftgrj&zt8=06mv7(hhum(fjceo2f$3$*xlo7m2gsq&fh92zrf'
 
 # About Page URL
 ABOUT_URL_MAP = {
-    'ja' : 'https://jocv-thai.github.io/pleethai/ja/',
-    'en' : 'https://jocv-thai.github.io/pleethai/en/',
-    'th' : 'https://jocv-thai.github.io/pleethai/th/',
+    'ja' : 'https://nomrand.github.io/pleethai/ja/',
+    'en' : 'https://nomrand.github.io/pleethai/en/',
+    'th' : 'https://nomrand.github.io/pleethai/th/',
 }
 
 ### Heroku Setting
