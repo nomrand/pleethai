@@ -11,11 +11,6 @@ TAG_CATEGORIZED_BY = 100
 class SearchView(generic.ListView):
     model = SysWordJapanese
     template_name = "search.html"
-    
-    def get(self, *args, **kwargs):
-        # session clear
-        self.request.session.clear()
-        return super().get(self, *args, **kwargs)
 
 #Search Word
 def search_word(request):
