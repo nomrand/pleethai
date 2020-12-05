@@ -35,9 +35,10 @@ words/sentences to the system manager from the "Request Page".
 ## details of each page
 
 - [Search Page](./howtouse_search.md)  
-[<img src ="https://user-images.githubusercontent.com/42882840/80295910-d8886500-87b1-11ea-8411-2e3267855189.gif" alt="demo" width="400">](./howtouse_search.md)
+[<img src ="https://user-images.githubusercontent.com/42882840/100090635-cf21c100-2e96-11eb-98ec-18694d4d44c9.gif" alt="search demo" width="320">](./howtouse_search.md)
 
-- [Request Page](./howtouse_request.md)
+- [Request Page](./howtouse_request.md)  
+[<img src ="https://user-images.githubusercontent.com/42882840/100090636-d0eb8480-2e96-11eb-823e-e0059da94e58.gif" alt="request demo" width="320">](./howtouse_request.md)
 
 
 # System Maintenance Procedure
