@@ -57,3 +57,67 @@ input.flag {
     vertical-align: middle;
     margin-right: 10px;
 }
+
+/* *** Floating Icons *** */
+.icon_div {
+    display: none; /* only shown in big screen */
+    width: 250px;
+    height: 50px;
+    position: fixed;
+    z-index: 1030;
+    right: -210px;
+    top: 30px; /* must be changed by each icon */
+    background: rgba(9, 127, 157, 0.9);
+    border-radius: 25px;
+    overflow: hidden;
+    transition: right 0.5s;
+    /* this is for click event bug of iOS */
+    cursor: pointer;
+}
+.icon_div.openning {
+    right: -30px;
+}
+.icon_div.opened {
+    right: -30px;
+}
+.icon_div a {
+    color: #fff;
+    font-weight: 900;
+    position: relative;
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    text-decoration: none;
+    padding-left: 45px;
+    padding-right: 30px;
+}
+.icon_div a:visited {
+    color: #fff;
+}
+.icon_div a::before {
+    font-family: 'Font Awesome 5 Free';
+    content: '\f128';
+    font-size: 30px;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 0px;
+    left: 10px;
+    margin: auto;
+    text-align: center;
+
+}
+
+/* About Page Link Icon */
+#icon_about {
+    top: 30px;
+}
+#icon_about a::before{
+    content: '\f128';
+}
+
+@media only screen and (min-width : 768px) {
+    .icon_div {
+        display: inherit;
+    }
+}

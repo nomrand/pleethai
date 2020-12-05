@@ -1,4 +1,5 @@
 import dj_database_url
+import django.core.management.utils
 """
 Django settings for config project.
 
@@ -21,9 +22,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'yftgrj&zt8=06mv7(hhum(fjceo2f$3$*xlo7m2gsq&fh92zrf'
+# *** SETTING FOR LOCAL DEVELOPMENT ENVIRONMENT ***
+SECRET_KEY = django.core.management.utils.get_random_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# *** SETTING FOR LOCAL DEVELOPMENT ENVIRONMENT ***
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -41,7 +44,8 @@ INSTALLED_APPS = [
     'import_export',
     'crispy_forms',
     'pleethai',
-    'taggit'
+    'taggit',
+    'gmailapi_backend'
 ]
 
 MIDDLEWARE = [
@@ -148,20 +152,31 @@ STATICFILES_DIRS = (
 )
 
 # Mail send
-# FOR DEBUG
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'test.gaifaa@gmail.com'
-EMAIL_HOST_PASSWORD = 'gaifaa2019'
-EMAIL_USE_TLS = True
+# *** SETTING FOR LOCAL DEVELOPMENT ENVIRONMENT ***
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'request_mails')
 
-REQUSET_MAIL_SEND_INFO = {
-    'subject': 'Pleethai Request Recieved',
+REQUEST_MAIL_SEND_INFO = {
+    'subject': 'GaifaaYeepun Request Mail',
     'templete_path': 'mails/request.txt',
-    'from_email': 'test.gaifaa@gmail.com',
+    'from_email': 'from@test.com',
     'recipient_list': [
-        'test.gaifaa@gmail.com',
+        'to@test.com',
     ],
 }
+
+# About Page URL
+# *** SETTING FOR LOCAL DEVELOPMENT ENVIRONMENT ***
+ABOUT_URL_MAP = {
+    'ja' : '',
+    'en' : '',
+    'th' : '',
+}
+
+# *** SETTING FOR PRODUCTION ENVIRONMENT ***
+# load "production_settings.py" & overwrite development settings
+# (no exist = development setting)
+try:
+    from .production_settings import *
+except ImportError:
+    pass

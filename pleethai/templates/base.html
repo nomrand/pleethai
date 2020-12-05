@@ -1,16 +1,39 @@
 {% load i18n static %}
+{% load settings_tag %}
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE|default:"ja" }}">
 
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147976194-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id={% get_settings 'GAID' %}"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'UA-147976194-1');
+    var GAID="{% get_settings 'GAID' %}";
+    gtag('config', GAID);
+
+    // send PV to Google Analytics
+    function sendGAPageView(page_path){
+        gtag('config', GAID, {
+            'page_path': page_path
+        });
+    }
+
+    // send event to Google Analytics
+    // label is an option
+    function sendGAEvent(category, action, label, value){
+        var opt = {
+            'event_category': category,
+            'event_label': label,
+            'value': value
+        };
+        if(!label){
+            delete opt['event_label'];
+        }
+        gtag('event', action, opt);
+    }
     </script>
 
     <!-- Required meta tags -->
@@ -21,17 +44,20 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 
     <!-- Extra CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% block extra_css %}{% endblock %}
 
-    <title>GayifaaYeepun</title>
+    <title>GaifaaYeepun</title>
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/png">
 </head>
 
 <body>
+    {% get_current_language as LANGUAGE_CODE %}
+    {% get_map_settings 'ABOUT_URL_MAP' LANGUAGE_CODE as ABOUT_PAGE_URL %}
     <div id="content" class="container">
         <nav class="navbar navbar-expand-md bg-faded align-items-end">
-            <a href="{% url 'search' %}" class="title navbar-brand"><img src="{% static 'img/title.png' %}" class="img-fluid" alt="GayifaaYeepun"></a>
+            <a href="{% url 'search' %}" class="title navbar-brand"><img src="{% static 'img/title.png' %}" class="img-fluid" alt="GaifaaYeepun"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-items">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -62,23 +88,34 @@
         </nav>
         <div class="collapse text-right" id="nav-items">
                 <ul class="list-group">
+                    {% if ABOUT_PAGE_URL %}
+                    <a class="list-group-item list-group-item-action" target="_blank" rel="noopener noreferrer" href="{{ ABOUT_PAGE_URL }}" role="button"><span class="btn-text">{% trans 'このサイトについて' %}</span></a>
+                    {% endif %}
                     <a class="list-group-item list-group-item-action" href="{% url 'search' %}" role="button"><span class="btn-text">{% trans '単語・例文' %}</span></a>
                     <a class="list-group-item list-group-item-action" href="{% url 'mail_input' %}" role="button"><span class="btn-text">{% trans 'リクエスト' %}</span></a>
                     <form id="menu-form-th" class="list-group-item list-group-item-action" name="trans"  action="{% url 'set_language' %}" method="post">
                         {% csrf_token %}
                         {% for field in form %}{{ field.as_hidden }}{% endfor %}
                         <input type="hidden" name="language" value="th">
-                        <a href="#" onclick="document.getElementById('menu-form-th').submit()" class="list-group-item-action"><span class="menu-span">ภาษาไทย / タイ語</span><img class="menu-img" src="{% static 'img/thaiflag.png' %}"></a>
+                        <a href="#" onclick="$('#menu-form-th').submit()" class="list-group-item-action"><span class="menu-span">ภาษาไทย / タイ語</span><img class="menu-img" src="{% static 'img/thaiflag.png' %}"></a>
                     </form>
                     <form id="menu-form-ja" class="list-group-item list-group-item-action" name="trans" action="{% url 'set_language' %}" method="post">
                         {% csrf_token %}
                         {% for field in form %}{{ field.as_hidden }}{% endfor %}
                         <input type="hidden" name="language" value="ja">
-                        <a href="#" onclick="document.getElementById('menu-form-ja').submit()" class="list-group-item-action"><span class="menu-span">ภาษาญี่ปุ่น / 日本語</span><img class="menu-img" src="{% static 'img/japanflag.png' %}"></a>
+                        <a href="#" onclick="$('#menu-form-ja').submit()" class="list-group-item-action"><span class="menu-span">ภาษาญี่ปุ่น / 日本語</span><img class="menu-img" src="{% static 'img/japanflag.png' %}"></a>
                     </form>
                 </ul>
 
-            </div>
+        </div>
+
+        <!-- Floating Icons -->
+        {% if ABOUT_PAGE_URL %}
+        <div id="icon_about" class="icon_div">
+            <a target="_blank" rel="noopener noreferrer" href="{{ ABOUT_PAGE_URL }}">{% trans 'このサイトについて' %}</a>
+        </div>
+        {% endif %}
+        
         {% block content %}
         {{ content }}
         {% endblock %}
@@ -94,6 +131,7 @@
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     
     <!-- Optional JavaScript -->
+    <script type="text/javascript" src="{% static 'js/base.js' %}"></script>
     {% block extra_js %}{% endblock %}
 </body>
 </html>

@@ -1,8 +1,9 @@
-ぷれータイ　リクエストメールです。
+GaifaaYeepun Request Mail
 
-リクエスト情報
+[INFO]
+--------------------
 {{form.name.label }}:{{ form.name.value }}
 {{form.mail1.label }}:{{ form.mail1.value }}
 {{form.content.label }}:{{ form.content.value }}
-
-以上
+--------------------
+end

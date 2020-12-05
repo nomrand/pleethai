@@ -71,10 +71,10 @@ def request_mail_send(context):
     '''
 
     # get info from settings
-    subject = settings.REQUSET_MAIL_SEND_INFO.get('subject')
+    subject = settings.REQUEST_MAIL_SEND_INFO.get('subject')
     message = render_to_string(
-        settings.REQUSET_MAIL_SEND_INFO.get('templete_path'), context)
-    from_email = settings.REQUSET_MAIL_SEND_INFO.get('from_email')
-    recipient_list = settings.REQUSET_MAIL_SEND_INFO.get('recipient_list')
+        settings.REQUEST_MAIL_SEND_INFO.get('templete_path'), context)
+    from_email = settings.REQUEST_MAIL_SEND_INFO.get('from_email')
+    recipient_list = settings.REQUEST_MAIL_SEND_INFO.get('recipient_list')
     # send a mail
     send_mail(subject, message, from_email, recipient_list)

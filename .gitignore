@@ -1,3 +1,10 @@
+# python
 *.pyc
-taticfiles
+
+# django
+staticfiles
 db.sqlite3
+
+# my settings
+production_settings.py
+request_mails
