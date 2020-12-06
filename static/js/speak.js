@@ -86,4 +86,7 @@ $(window).on('load', function() {
         base.addClass('speaking');
         window.speechSynthesis.speak(msg);
     });
+        
+    // In MacOS, getVoices return empty just after load
+    setTimeout(loadVoices, 1000);
 });
