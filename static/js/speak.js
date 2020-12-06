@@ -4,11 +4,15 @@ var SPEECH_VOICE_AVAILBALE = {
     "en" : undefined,
 };
 
-speechSynthesis.onvoiceschanged = function() {
+window.speechSynthesis.onvoiceschanged = function(e) {
+    loadVoices();
+};
+
+function loadVoices() {
     // loop for each language (jp, th, en)
     $.each(SPEECH_VOICE_AVAILBALE, function(targetLang, __v) {
         // loop for browser-available-voices
-        $.each(speechSynthesis.getVoices(), function(__index, voice) {
+        $.each(window.speechSynthesis.getVoices(), function(__index, voice) {
             if(voice.lang.startsWith(targetLang)){
                 // set available voice for target language
                 SPEECH_VOICE_AVAILBALE[targetLang] = voice;
@@ -19,7 +23,7 @@ speechSynthesis.onvoiceschanged = function() {
 
     // set speakbale indicator
     setSpeakableOrNot();
-};
+}
 
 function setSpeakableOrNot() {
     $.each(SPEECH_VOICE_AVAILBALE, function(lang, v) {
@@ -36,16 +40,16 @@ function setSpeakableOrNot() {
     });
 }
 
-$(document).ready(function() {
+$(window).on('load', function() {
     // first set the voices
-    speechSynthesis.onvoiceschanged();
+    loadVoices();
 
     var all_target_class = Object.keys(SPEECH_VOICE_AVAILBALE).map(function(k){
         return '.speech-button-' + k;
     }).join(', ');
     $(document).on('click', all_target_class, function() {
         // if voice is already speaking, do nothing
-        if(speechSynthesis.pending || speechSynthesis.speaking){
+        if(window.speechSynthesis.pending || window.speechSynthesis.speaking){
             return;
         }
 
@@ -80,6 +84,6 @@ $(document).ready(function() {
             base.removeClass('speaking');
         });
         base.addClass('speaking');
-        speechSynthesis.speak(msg);
+        window.speechSynthesis.speak(msg);
     });
 });
