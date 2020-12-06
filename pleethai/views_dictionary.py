@@ -3,18 +3,14 @@ from django.views import generic
 from django.template.loader import render_to_string
 from django.http import HttpResponse
 from django.db.models import Q, Count
-from pleethai.models import SysWordJapanese, SysWordThai, Example, Constituent, Tag
+from pleethai.models import SysWordJapanese, SysWordConnector, Example, Constituent, Tag
 
 PAGENATE_BY = 20
+TAG_CATEGORIZED_BY = 100
 
 class SearchView(generic.ListView):
     model = SysWordJapanese
     template_name = "search.html"
-    
-    def get(self, *args, **kwargs):
-        # session clear
-        self.request.session.clear()
-        return super().get(self, *args, **kwargs)
 
 #Search Word
 def search_word(request):
@@ -32,19 +28,22 @@ def search_word(request):
     # Create filter object
     filter_obj = Q()
     if keyword:
-        # Search and get japanese id list from SysWordThai
-        id_list = SysWordThai.objects.filter( \
+        # Search and get japanese id list from SysWordConnector
+        id_list = SysWordConnector.objects.filter( \
             Q(japanese_id__japanese__icontains=keyword) | \
             Q(japanese_id__hiragana__icontains=keyword) | \
             Q(japanese_id__roman__icontains=keyword) | \
-            Q(thai__icontains=keyword) | \
-            Q(pronunciation_kana__icontains=keyword) | \
-            Q(english__icontains=keyword) \
-            ).select_related('japanese_id').values_list("japanese_id", flat=True).distinct()
+            Q(word_id__thai__icontains=keyword) | \
+            Q(word_id__pronunciation_kana__icontains=keyword) | \
+            Q(word_id__english__icontains=keyword) \
+            ).select_related('word_id').select_related('japanese_id').values_list("japanese_id", flat=True).distinct()
         filter_obj.add(Q(id__in=id_list), Q.AND)
 
     if tags:
-        filter_obj.add(Q(tags__id__in=tags.split('+')), Q.AND)
+        id_list = SysWordConnector.objects.filter( \
+            Q(tags__id__in=tags.split('+')) \
+            ).values_list("japanese_id", flat=True).distinct()
+        filter_obj.add(Q(id__in=id_list), Q.AND)
 
     # Get word list
     result_list = SysWordJapanese.objects.filter(filter_obj).distinct() \
@@ -80,8 +79,8 @@ def search_example(request):
         filter_obj.add(Q(english__icontains=keyword), Q.OR)
 
     if tags:
-        id_list = Constituent.objects.filter(word_id__japanese_id__tags__id__in=tags.split('+')) \
-            .select_related('word_id').select_related('japanese_id').values_list('example_id', flat= True).distinct()
+        id_list = Constituent.objects.filter(word_id__tags__id__in=tags.split('+')) \
+            .select_related('word_id').values_list('example_id', flat= True).distinct()
         filter_obj.add(Q(id__in=id_list), Q.AND)
     
     # Get example list
@@ -103,6 +102,16 @@ class ExampleDetailView(generic.DetailView):
 
 def tags_all(request):
     tags = Tag.objects.all() \
-        .annotate(num_times=Count('pleethai_taggeditem_items')) \
-        .order_by('-num_times')
-    return render(request, 'tags.html', {'object_list': tags})
+        .annotate(num_times=Count('pleethai_taggeditem_items'))
+
+    # ignore the tags that have no item
+    tags = filter(lambda t: t.num_times > 0, tags)
+    # create 2-dimensional list ([tag category][tags])
+    # both tag category & tags are sorted by id
+    tag_cat_map = {}
+    for t in tags:
+        k = int(t.id/TAG_CATEGORIZED_BY)
+        tag_cat_map[k] = tag_cat_map.get(k, [])
+        tag_cat_map[k].append(t)
+    object_list = list(sorted(tag_cat_map.values(), key=lambda tlist: tlist[0].id))
+    return render(request, 'tags.html', {'object_list': object_list})

@@ -166,6 +166,13 @@ REQUEST_MAIL_SEND_INFO = {
     ],
 }
 
+# About Page URL
+# *** SETTING FOR LOCAL DEVELOPMENT ENVIRONMENT ***
+ABOUT_URL_MAP = {
+    'ja' : '',
+    'en' : '',
+    'th' : '',
+}
 
 # *** SETTING FOR PRODUCTION ENVIRONMENT ***
 # load "production_settings.py" & overwrite development settings
