@@ -1,16 +1,7 @@
 var SPEECH_VOICE_AVAILBALE = {
-    "ja" : {
-        "voice": undefined,
-        "lang": "ja-JP"
-    },
-    "th" : {
-        "voice": undefined,
-        "lang": "th-TH"
-    },
-    "en" : {
-        "voice": undefined,
-        "lang": "en-US"
-    },
+    "ja" : undefined,
+    "th" : undefined,
+    "en" : undefined,
 };
 
 window.speechSynthesis.onvoiceschanged = function(e) {
@@ -24,7 +15,7 @@ function loadVoices() {
         $.each(window.speechSynthesis.getVoices(), function(__index, voice) {
             if(voice.lang.startsWith(targetLang)){
                 // set available voice for target language
-                SPEECH_VOICE_AVAILBALE[targetLang].voice = voice;
+                SPEECH_VOICE_AVAILBALE[targetLang] = voice;
                 return false;
             }
         });
@@ -38,7 +29,7 @@ function setSpeakableOrNot() {
     $.each(SPEECH_VOICE_AVAILBALE, function(lang, v) {
         var target = $('.speech-button-' + lang);
         // set/unset speakable indicator
-        if(v.voice) {
+        if(v) {
             target.find('.speech-target').addClass('speakable');
             // this is for click event bug of iOS
             target.css({'cursor': 'pointer'});
@@ -63,14 +54,14 @@ $(window).on('load', function() {
         }
 
         var self = this;
-        var voiceObj;
+        var voice;
         $.each(SPEECH_VOICE_AVAILBALE, function(lang, v) {
             if($(self).is('.speech-button-' + lang)){
-                voiceObj = v;
+                voice = v;
                 return false;
             }
         });
-        if(!voiceObj) {
+        if(!voice) {
             return false;
         }
 
@@ -83,14 +74,8 @@ $(window).on('load', function() {
 
         // set speak setting
         var msg = new SpeechSynthesisUtterance();
-        if(voiceObj.voice){
-            msg.lang = voiceObj.lang;
-            msg.voice = voiceObj.voice;
-        } else {
-            // In MacOS, some times getVoices returns voice object which has empty lang,
-            // then try to speech with default lang 
-            msg.lang = voiceObj.lang;
-        }
+        msg.lang = voice.lang;
+        msg.voice = voice;
         msg.text = text;
         msg.rate = 0.8; // speed (min 0 - max 10)
 
