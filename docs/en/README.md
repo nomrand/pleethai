@@ -2,7 +2,7 @@
 
 ![deploy gaifaa](https://github.com/jocv-thai/pleethai/workflows/deploy%20gaifaa/badge.svg)
 
-[日本語](../../README.md) | English
+[日本語](../../README.md) | English | [ภาษาไทย](../th/README.md)
 
 # Overview
 GaifaaYeepun is a dictionary website project for Japanese, Thai, and English words/sentences, powered by Django.

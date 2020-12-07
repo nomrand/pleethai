@@ -2,7 +2,7 @@
 
 ![deploy gaifaa](https://github.com/jocv-thai/pleethai/workflows/deploy%20gaifaa/badge.svg)
 
-日本語 | [English](./docs/en/README.md)
+日本語 | [English](./docs/en/README.md) | [ภาษาไทย](./docs/th/README.md)
 
 # 概要
 Djangoによる、日本語、タイ語、英語の単語、例文辞書サイトプロジェクトです。
