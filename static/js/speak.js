@@ -1,17 +1,21 @@
-var speechVoiceAvailbale = {
+var SPEECH_VOICE_AVAILBALE = {
     "ja" : undefined,
     "th" : undefined,
     "en" : undefined,
-}
+};
 
-speechSynthesis.onvoiceschanged = function() {
+window.speechSynthesis.onvoiceschanged = function(e) {
+    loadVoices();
+};
+
+function loadVoices() {
     // loop for each language (jp, th, en)
-    $.each(speechVoiceAvailbale, function(targetLang, __v) {
+    $.each(SPEECH_VOICE_AVAILBALE, function(targetLang, __v) {
         // loop for browser-available-voices
-        $.each(speechSynthesis.getVoices(), function(__index, voice) {
+        $.each(window.speechSynthesis.getVoices(), function(__index, voice) {
             if(voice.lang.startsWith(targetLang)){
                 // set available voice for target language
-                speechVoiceAvailbale[targetLang] = voice;
+                SPEECH_VOICE_AVAILBALE[targetLang] = voice;
                 return false;
             }
         });
@@ -22,7 +26,7 @@ speechSynthesis.onvoiceschanged = function() {
 }
 
 function setSpeakableOrNot() {
-    $.each(speechVoiceAvailbale, function(lang, v) {
+    $.each(SPEECH_VOICE_AVAILBALE, function(lang, v) {
         var target = $('.speech-button-' + lang);
         // set/unset speakable indicator
         if(v) {
@@ -36,17 +40,22 @@ function setSpeakableOrNot() {
     });
 }
 
-$(document).ready(function() {
+$(window).on('load', function() {
     // first set the voices
-    speechSynthesis.onvoiceschanged();
+    loadVoices();
 
-    var all_target_class = Object.keys(speechVoiceAvailbale).map(function(k){
+    var all_target_class = Object.keys(SPEECH_VOICE_AVAILBALE).map(function(k){
         return '.speech-button-' + k;
     }).join(', ');
     $(document).on('click', all_target_class, function() {
+        // if voice is already speaking, do nothing
+        if(window.speechSynthesis.pending || window.speechSynthesis.speaking){
+            return;
+        }
+
         var self = this;
         var voice;
-        $.each(speechVoiceAvailbale, function(lang, v) {
+        $.each(SPEECH_VOICE_AVAILBALE, function(lang, v) {
             if($(self).is('.speech-button-' + lang)){
                 voice = v;
                 return false;
@@ -69,9 +78,12 @@ $(document).ready(function() {
         msg.voice = voice;
         msg.text = text;
         msg.rate = 0.8; // speed (min 0 - max 10)
-        
-        // speak (if already speaking, cancel it)
-        speechSynthesis.cancel();
-        speechSynthesis.speak(msg);
+
+        // speak
+        $(msg).on('end error', function() {
+            base.removeClass('speaking');
+        });
+        base.addClass('speaking');
+        window.speechSynthesis.speak(msg);
     });
 });

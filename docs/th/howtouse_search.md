@@ -9,12 +9,15 @@
 
 
 ## ค้นหาคำศัพท์
-![ค้นหาคำศัพท์](https://docs.google.com/drawings/d/e/2PACX-1vQydF_MCgQ78htf5T37wAEiFy2SbCFMUPhOO8MVbGP6KT5wKIszzVkKa1ZHBmTs2BzQsQO2WrbxJBhw/pub?w=1582&h=690)
+![ค้นหาคำศัพท์](https://docs.google.com/drawings/d/e/2PACX-1vQydF_MCgQ78htf5T37wAEiFy2SbCFMUPhOO8MVbGP6KT5wKIszzVkKa1ZHBmTs2BzQsQO2WrbxJBhw/pub?w=1554&h=566)
 
 
 ## ค้นหาประโยค (ตัวอย่างประโยค)
-![ค้นหาประโยค](https://docs.google.com/drawings/d/e/2PACX-1vRj6dX48JBRD-FbXnAst7gewJs2pIYVfDq5A44L6J3tShoKFI4wIPaUgSKgbpoxunPD7LJaHsi9r0qU/pub?w=1582&h=690)
+![ค้นหาประโยค](https://docs.google.com/drawings/d/e/2PACX-1vR_paPb-Jfkg1m_M30SjWZux42SsjwjzsjsdZW6oJJS67OR9n6ZFT8F3ERszE850Mlohusudw2XSrBr/pub?w=1554&h=566)
 
+
+## คำอธิบายของแต่ละส่วนในหน้า
+![เมนูหน้าค้นหา](https://docs.google.com/drawings/d/e/2PACX-1vRKGcdVrCcQVVgKELT-PAVUdEqA7ohW_AKK2I4aRQNqMCWLFxzy4la_88H8NQzOOIV2WOyfNnT-AS0W/pub?w=643&h=214)
 
 1. เปลี่ยนไปเป็น "หน้าค้นหา" / "หน้าขอร้อง"
    - หน้าเริ่มต้นเป็น "หน้าค้นหา"
@@ -41,13 +44,15 @@
    - ในสถานะเริ่มต้น ข้อมูลที่เป็นคำศัพท์จะถูกแสดง
    - ถ้าคลิกแท็บ "ตัวอย่างประโยค" หรือ "例文" ก็จะแสดงข้อมูลที่เป็นประโยค
 
-6. คำศัพท์
+6. คำศัพท์  
+   ![บรรทัดคำศัพท์](https://docs.google.com/drawings/d/e/2PACX-1vR7jqH6uKcd3PlpktkZCNvBFmPhV_MmMNv9LASSbSjuouY9LesDNEDpx1f6oCyh2jbI--aqcq2cnt6o/pub?w=475&h=167)
 
    (a) ภาษาญี่ปุ่น  (b) แท็กเกี่ยวกับคำศัพท์นั้น  (c) ภาษาไทย ภาษาอังกฤษ
    - ถ้าคลิกแท็ก ก็จะค้นหาและแสดงคำศัพท์เกี่ยวกับแท็กนั้นใหม่
    - ถ้าคลิกที่อื่นนอกจากแท็ก ก็จะแสดงหน้าต่างรายละเอียดของคำศัพท์ที่คลิก
 
-7. ประโยค (ตัวอย่างประโยค)
+7. ประโยค (ตัวอย่างประโยค)  
+   ![บรรทัดประโยค](https://docs.google.com/drawings/d/e/2PACX-1vQUwD7VgMgkOvCwkPSKjQVN-38xdbEdmyxxfzC1CSV3qB3nNI0saXZTJOGg12qyDErJNJ6ju5NgbnW8/pub?w=472&h=121)
 
    (a) ภาษาญี่ปุ่น  (b) แท็กเกี่ยวกับประโยคนั้น  (c) ภาษาไทย
    - ถ้าคลิกแท็ก ก็จะค้นหาและแสดงประโยคเกี่ยวกับแท็กนั้นใหม่
@@ -61,12 +66,12 @@
 
    แต่ สามารถกดปุ่มด้านบนขวาเพื่อแสดงเมนูส่วนนั้นได้
 
-   ![ในอุปกรณ์ขนาดหน้าเจอเล็ก](https://docs.google.com/drawings/d/e/2PACX-1vTLIQYxWN24bdBahvhQ16ZkPupmZCkAsugwV2A5apFN8-fpGgi4j2-UYhOQO4-N-pm-bDN3LWxfpHJr/pub?w=1640&h=736)
+   ![ในอุปกรณ์ขนาดหน้าเจอเล็ก](https://docs.google.com/drawings/d/e/2PACX-1vQl5fiOJCyJSnNDYVkrf_gw-5B85A6acjjxHwMVULQ-uerp1bZoNeuL5cEZerNMAjkyRy30Hln49k7Y/pub?w=553&h=347)
 
 ---
 
 ## หน้าต่างรายละเอียดคำศัพท์
-![หน้าต่างรายละเอียดคำศัพท์](https://docs.google.com/drawings/d/e/2PACX-1vQxK-b3n0Gbdo5e7uIXLGmCN3dkuD_80JCxCL0JuZUrPl0M0ciZ37YHmgWMyz0mDaM-g3g96VG_ZFTX/pub?w=1582&h=690)
+![หน้าต่างรายละเอียดคำศัพท์](https://docs.google.com/drawings/d/e/2PACX-1vQwPRKElK4X0Aql2PVZrrZAfZDhPYx9n3uCH8GYlDx39oW81pmvdTD3hwIXyEHYNmUvIf9R6YH08wLo/pub?w=779&h=568)
 
 1. แท็กเกี่ยวกับคำศัพท์นั้น
    - ถ้าคลิกแท็ก ก็จะค้นหาและแสดงคำศัพท์เกี่ยวกับแท็กนั้นใหม่
@@ -75,7 +80,7 @@
 
 
 ## หน้าต่างรายละเอียดประโยค
-![หน้าต่างรายละเอียดประโยค](https://docs.google.com/drawings/d/e/2PACX-1vTA7CrzOykfQzC9DvwLDZDPGp2U_HLB0hvGOxKxNZB-E6FLkO_G4tA1Jem0E9mL4KasamtWB0b88r8_/pub?w=1582&h=690)
+![หน้าต่างรายละเอียดประโยค](https://docs.google.com/drawings/d/e/2PACX-1vTKR0pHDTtyeJimO0njgit4y3Q_w7HASyEjZwab_H3XsUU10OZWjuuQI7nzueYiMq53318KiKUdG4XP/pub?w=779&h=568)
 
 1. แท็กเกี่ยวกับประโยคนั้น
    - ถ้าคลิกแท็ก ก็จะค้นหาและแสดงประโยคเกี่ยวกับแท็กนั้นใหม่
