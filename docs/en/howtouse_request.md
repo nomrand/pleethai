@@ -10,7 +10,6 @@ You can send the request message to the system manager, in the case of ...
 1. Switch "Search Page" / "Request Page"
 2. Switch display language Thai / Japanese
    - Same as ["Search Page"](./howtouse_search.md)
-
 3. Name
 4. Mail Address
    - If you input Mail Address, the system manager can reply to your request
