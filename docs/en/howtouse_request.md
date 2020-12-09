@@ -10,7 +10,6 @@ You can send the request message to the system manager, in the case of ...
 1. Switch "Search Page" / "Request Page"
 2. Switch display language Thai / Japanese
    - Same as ["Search Page"](./howtouse_search.md)
-
 3. Name
 4. Mail Address
    - If you input Mail Address, the system manager can reply to your request
@@ -21,7 +20,7 @@ You can send the request message to the system manager, in the case of ...
 
 
 ## Request Confirm Page
-![Request Confirm Page](https://docs.google.com/drawings/d/e/2PACX-1vR3pEBioPS7nn2l5GwHP3UW1IzlIxOV87IwCLaIRkM-NJiMovYQMBgAP2ML05SKcjmEL7zY0bfwDVK9/pub?w=1233&h=423)
+![Request Confirm Page](https://docs.google.com/drawings/d/e/2PACX-1vR3pEBioPS7nn2l5GwHP3UW1IzlIxOV87IwCLaIRkM-NJiMovYQMBgAP2ML05SKcjmEL7zY0bfwDVK9/pub?w=1188&h=346)
 
 - Click the "送信" or "ส่ง" button, to send the request to the system manager. If is is completed successfully, go to "Request Complete Page".
 - Click the "修正" or "แก้ไข" button, to go back to "Request Input Page".
