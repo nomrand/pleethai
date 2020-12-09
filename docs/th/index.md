@@ -17,11 +17,11 @@ GaifaaYeepun(ไก่ฟ้าญี่ปุ่น) คือเว็บไ�
 คลิกรูปภาพด้านล่างเพื่อแสดงรายละเอียดของแต่ละหน้า
 
 - [หน้าค้นหา](./howtouse_search.md)  
-[<img src ="https://user-images.githubusercontent.com/42882840/100090635-cf21c100-2e96-11eb-98ec-18694d4d44c9.gif" alt="search demo" width="320">](./howtouse_search.md)
+[<img src ="https://user-images.githubusercontent.com/42882840/101600410-96f5b300-3a3e-11eb-946c-67aa101f1ddb.gif" alt="search demo" width="320">](./howtouse_search.md)
 
   - ถ้ามีไอคอนลำโพง<i class="fas fa-volume-up"></i> อยู่ข้างหลังคำศัพท์หรือประโยคในหน้านี้ สามารถคลิกไอคอนนั้นเพื่อฟังการออกเสียงได้
 
     ถ้าไม่มีไอคอนลำโพง สามารถใช้ ___Windows10 + Microsoft Edge เบราว์เซอร์___ และ [ติดตั้งภาษาใหม่](https://support.microsoft.com/th-th/office/%e0%b8%94%e0%b8%b2%e0%b8%a7%e0%b8%99%e0%b9%8c%e0%b9%82%e0%b8%ab%e0%b8%a5%e0%b8%94%e0%b9%80%e0%b8%aa%e0%b8%b5%e0%b8%a2%e0%b8%87%e0%b8%aa%e0%b8%b3%e0%b8%ab%e0%b8%a3%e0%b8%b1%e0%b8%9a%e0%b8%9c%e0%b8%b9%e0%b9%89-%e0%b8%ad%e0%b9%88%e0%b8%b2%e0%b8%99%e0%b8%aa%e0%b8%a1%e0%b8%9a%e0%b8%b9%e0%b8%a3%e0%b8%93%e0%b9%8c-%e0%b9%82%e0%b8%ab%e0%b8%a1%e0%b8%94%e0%b8%81%e0%b8%b2%e0%b8%a3%e0%b8%ad%e0%b9%88%e0%b8%b2%e0%b8%99-%e0%b9%81%e0%b8%a5%e0%b8%b0%e0%b8%ad%e0%b9%88%e0%b8%b2%e0%b8%99%e0%b8%ad%e0%b8%ad%e0%b8%81%e0%b9%80%e0%b8%aa%e0%b8%b5%e0%b8%a2%e0%b8%87-4c83a8d8-7486-42f7-8e46-2b0fdf753130?wt.mc_id=edgeui-readaloud-voices&ui=th-th&rs=th-th&ad=th) ได้ เพื่อแก้ไข
 
 - [หน้าขอร้อง](./howtouse_request.md)  
-[<img src ="https://user-images.githubusercontent.com/42882840/100090636-d0eb8480-2e96-11eb-823e-e0059da94e58.gif" alt="request demo" width="320">](./howtouse_request.md)
+[<img src ="https://user-images.githubusercontent.com/42882840/101600726-0f5c7400-3a3f-11eb-8bad-3a91b21d8d55.png" alt="request demo" width="320">](./howtouse_request.md)

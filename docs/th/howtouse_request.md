@@ -19,7 +19,7 @@
 
 
 ## ตรวจสอบเนื้อหาในคำขอร้อง
-![ตรวจสอบเนื้อหาในคำขอร้อง](https://docs.google.com/drawings/d/e/2PACX-1vR3pEBioPS7nn2l5GwHP3UW1IzlIxOV87IwCLaIRkM-NJiMovYQMBgAP2ML05SKcjmEL7zY0bfwDVK9/pub?w=1233&h=423)
+![ตรวจสอบเนื้อหาในคำขอร้อง](https://docs.google.com/drawings/d/e/2PACX-1vR3pEBioPS7nn2l5GwHP3UW1IzlIxOV87IwCLaIRkM-NJiMovYQMBgAP2ML05SKcjmEL7zY0bfwDVK9/pub?w=1188&h=346)
 
 - กดปุ่ม "ส่ง" เพื่อส่งคำขอร้องไปยังผู้จัดการระบบ
   ถ้าส่งสำเร็จ ก็จะแสดงหน้าต่อไป
