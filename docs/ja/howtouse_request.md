@@ -18,7 +18,7 @@
 
 
 ## リクエスト確認画面
-![リクエスト確認画面](https://docs.google.com/drawings/d/e/2PACX-1vR3pEBioPS7nn2l5GwHP3UW1IzlIxOV87IwCLaIRkM-NJiMovYQMBgAP2ML05SKcjmEL7zY0bfwDVK9/pub?w=1233&h=423)
+![リクエスト確認画面](https://docs.google.com/drawings/d/e/2PACX-1vR3pEBioPS7nn2l5GwHP3UW1IzlIxOV87IwCLaIRkM-NJiMovYQMBgAP2ML05SKcjmEL7zY0bfwDVK9/pub?w=1188&h=346)
 
 - 送信ボタン押下で、システム管理者にリクエストを送信する。送信成功した場合は、リクエスト送信終了画面に遷移する。
 - 修正ボタン押下で、リクエスト入力画面に戻る。
