@@ -107,6 +107,7 @@ class WordAdmin(ImportExportModelAdmin):
         sys_japanese = []
         exist_word_ids = SysWordConnector.objects.all().values_list("id", flat=True).distinct()
         sys_word_con = []
+        all_tags = Tag.objects.all().values_list('name', flat=True)
         try:
             for word in all_words:
                 # skip existed word
@@ -126,6 +127,9 @@ class WordAdmin(ImportExportModelAdmin):
                     sys_word_con.append(tempConnect)
                     # create tag
                     for tag in _parse_tags(word.tags):
+                        # skip the invalid tag
+                        if tag not in all_tags:
+                            continue
                         tempConnect.tags.add(tag)
             # append
             SysWordJapanese.objects.bulk_create(sys_japanese)
