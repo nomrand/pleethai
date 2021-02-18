@@ -91,8 +91,12 @@ class WordAdmin(ImportExportModelAdmin):
 
     # Update tags
     def update_tags(self):
+        all_tags = Tag.objects.all().values_list('name', flat=True)
         for word_con in SysWordConnector.objects.all():
             for tag in _parse_tags(Word.objects.filter(id=word_con.id).first().tags):
+                # skip the invalid tag
+                if tag not in all_tags:
+                    continue
                 word_con.tags.add(tag)
 
 class WordClassAdmin(ImportExportModelAdmin):
