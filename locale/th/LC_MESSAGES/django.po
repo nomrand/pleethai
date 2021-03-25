@@ -107,7 +107,7 @@ msgstr "ไม่ถูกต้อง"
 #: .\pleethai\templates\word_detail_quiz_jap_write.html:39
 #: .\pleethai\templates\word_detail_quiz_jap_write.html:59
 msgid "ヒント"
-msgstr "เบาะแส"
+msgstr "คำใบ้"
 
 #: .\pleethai\templates\example_detail_quiz_jap_read.html:78
 #: .\pleethai\templates\example_detail_quiz_jap_write.html:78
