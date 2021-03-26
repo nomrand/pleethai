@@ -47,7 +47,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'css/speak.css' %}">
-    <link rel="stylesheet" href="{% static 'css/quiz.css' %}">
     {% block extra_css %}{% endblock %}
 
     <title>GaifaaYeepun</title>
@@ -97,7 +96,7 @@
                     </a>
                     {% endif %}
                     {% if QUIZ_LIST %}
-                    <a class="list-group-item list-group-item-action menu-quiz general-modal-button" href="/gen/quiz_select" role="button">
+                    <a class="d-none list-group-item list-group-item-action menu-quiz general-modal-button" href="/gen/quiz_select" role="button">
                         <span id="menu-quiz" class="btn-text"><span class="menu-icon icon-holder"></span>{% trans '日本語テスト' %}</span>
                     </a>
                     {% endif %}
@@ -126,7 +125,7 @@
         </div>
         {% endif %}
         {% if QUIZ_LIST %}
-        <div id="icon-quiz" class="icon_div">
+        <div id="icon-quiz" class="d-none icon_div">
             <a class="general-modal-button" href="/gen/quiz_select">{% trans '日本語テスト' %}</a>
         </div>
         {% endif %}
@@ -157,9 +156,6 @@
     <!-- Optional JavaScript -->
     <script type="text/javascript" src="{% static 'js/base.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/speak.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/quiz.common.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/quiz.reading.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/quiz.writing.js' %}"></script>
     {% block extra_js %}{% endblock %}
 </body>
 </html>

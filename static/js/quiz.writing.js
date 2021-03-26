@@ -1085,7 +1085,7 @@ function getWrongAnswer_Writing(correct_answer, question) {
     var targetKanjiArray = arrayShuffle(correct_answer.split('')).join('').match(REGEXP_KANJI);
     if (! targetKanjiArray) {
         // trim hiragana from kanji(=question) 
-        var change_target_org = trimHiragana(question, correct_answer)['word1'];
+        var change_target_org = trimHiragana(correct_answer, question)['word1'];
         var targetKatakanaArray = change_target_org.match(REGEXP_KATAKANA);
         if(! targetKatakanaArray){
             // no kanji & katakana
